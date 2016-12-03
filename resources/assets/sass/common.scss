@@ -1,0 +1,648 @@
+$greenD:#96a04d;
+$greenL:#c5cd8e;
+$orange:#ff9e3d;
+$yellow:#fad957;
+$grayL:#959595;
+$grayD:#434343;
+$bgColor:#f6f6f6;
+$webWidth:960px;
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+blockquote {
+  text-indent: -24px;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,img {
+  border: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+  font-weight: normal;
+  font-style: normal;
+}
+ol,ul {
+  list-style: none;
+}
+caption,th {
+  text-align: left;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+  font-size: 100%;
+}
+q:before,q:after {
+  content:'';
+}
+abbr,acronym {
+  border: 0;
+}
+/*
+ * self-defined attributes
+ */
+h1,h2,h3,h4,h5,h6,input,button,select {
+  outline: 0;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial,
+  "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN",
+  "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei",
+  "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+
+
+
+/*
+* common styles
+*/
+html{
+  font-size:65%;
+}
+@mixin block {
+  background-color: white;
+  padding:20px;
+  margin-bottom:20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+body{
+  font-weight: lighter;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial,
+  "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN",
+  "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei",
+  "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  background: $bgColor;
+}
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:150px;
+  color:white;
+  background: $greenD;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  .headerWrapper{
+    margin:0 auto;
+    width:$webWidth;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+div#logo_wrapper{
+  font-size:3rem;
+  font-style:italic;
+  align-self: stretch;
+  flex-basis:0;
+  flex-grow:1;
+  display: flex;
+  align-items: center;
+
+}
+nav#headerNav{
+  padding-left: 50px;
+  box-sizing: border-box;
+  display:flex;
+  //position:absolute;
+  //bottom:0;
+  width:100%;
+  font-size:1.4rem;
+  a{
+    padding:10px 25px;
+    color:white;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  a.active{
+    border-bottom:3px $yellow solid;
+  }
+  .mdl-menu a{
+    padding:0 25px;
+    color:$grayD;
+  }
+}
+div.main{
+  margin:190px auto auto auto ;
+  width: $webWidth;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+nav#mainNav{
+  @include   block;
+  padding:10px 0 0 0;
+  width:250px;
+  display: flex;
+  flex-direction: column;
+  font-size:1.8rem;
+  flex-grow: 0;
+  height:auto;
+  a{
+    margin-bottom:10px;
+    padding:0 20px;
+    box-sizing: border-box;
+    width:100%;
+    height:50px;
+    line-height:50px;
+    text-decoration:none;
+    color: $grayL;
+  }
+  a.active{
+    background: $greenL;
+    color:white;
+  }
+}
+h1{
+  font-size:1.4rem;
+}
+div.mainContent{
+  //margin-left:20px;
+
+  padding:20px;
+  box-sizing: border-box;
+  width:690px;
+  @include   block;
+  #datePicker{
+    position: absolute;
+    right:20px;
+    top:20px;
+  }
+  h1{
+    width:auto;
+  }
+  ul{
+    padding:40px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+  ul#sleepStatics{
+    //justify-content: space-between;
+  }
+  p{
+    color:$grayL;
+    span{
+      color:$orange;
+      font-size:3rem;
+    }
+  }
+  p.sleepNum span{
+    font-size:2rem;
+  }
+  div.graphic{
+    width:100%;
+    height:300px;
+    background-color:#eee ;
+  }
+}
+
+div#userCardMoment{
+  padding:10px 0 10px 0;
+  width:250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size:1.8rem;
+  @include   block;
+  height:auto;
+  img#userIcon{
+    margin:25px auto 5px auto;
+    width:120px;
+    height:120px;
+    border-radius: 50%;
+  }
+  h2{
+    font-size:1.4rem;
+  }
+  ul#momentInfo{
+    margin-top:10px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:100%;
+    li{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+      p.momentInfoNum{
+        font-size:1.8rem;
+        color:$orange;
+      }
+      p.momentInfoName{
+        font-size:1rem;
+        color:$grayL;
+      }
+    }
+  }
+}
+
+div.mdl-textfield{
+  padding-bottom:0;
+  label:after{
+    background-color: $greenL;
+    bottom:0;
+  }
+}
+
+
+div#momentNew{
+  div.mdl-textfield{
+    width:100%;
+    border-bottom: $greenD;
+    padding-bottom:0;
+    label{
+      font-size:1.4rem;
+    }
+    label:after{
+      background-color: $greenL;
+      bottom:0;
+    }
+  }
+  div.momentNewTools{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    label{
+      color:$grayL;
+    }
+    button{
+      //height:30px;
+      color:$orange;
+    }
+  }
+}
+
+div.moment{
+  div.momentsInfo{
+    display: flex;
+    img{
+      margin-right:10px;
+      width:50px;
+      height:50px;
+      border-radius: 50%;
+    }
+    div{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h2{
+        font-weight: 700;
+        font-size:1.4rem;
+        line-height:1.6rem;
+      }
+      h3{
+        line-height:1.6rem;
+      }
+    }
+  }
+  section{
+    margin-left:60px;
+    margin-top:15px;
+    margin-right:10px;
+  }
+}
+
+a{
+  text-decoration: none;
+}
+
+div.competition{
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  cursor: pointer;
+  img.competitionIcon{
+    margin-right:20px;
+    width:30px;
+    height:30px;
+  }
+  div.competitionBrief{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow:1;
+    h2{
+      font-weight: 700;
+      font-size:1.4rem;
+      line-height:1.6rem;
+      color:$grayD;
+    }
+    h3{
+      line-height:1.6rem;
+      color:$grayL;
+    }
+  }
+  div.competitionPeople{
+    text-align: center;
+    h4{
+      color:$grayD;
+      font-size:2.6rem;
+    }
+    h5{
+      color:$grayL;
+    }
+  }
+}
+
+div#competitionDetail{
+  h1{
+    margin:30px 0 10px 0;
+    font-size:1.2rem;
+  }
+  img{
+    margin-right:10px;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+  }
+  div#competitionContent{
+    padding-left: 50px;
+    button{
+      margin-top:20px;
+      background-color:$yellow;
+    }
+    div.creatorInfo{
+      display: flex;
+      flex-direction: row;
+      div{
+        padding:3px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      p.name{
+        font-size:1.6rem;
+        color:$grayD;
+      }
+    }
+    div.participates{
+      //padding-left:50px;
+    }
+  }
+}
+
+nav.navSecond{
+  @include block;
+  padding:15px 20px;
+  width:690px;
+  a{
+    color:$grayD;
+    margin-right:10px;
+  }
+  button{
+    display: block;
+    position:absolute;
+    right:0;
+    top:0;
+    height:50px;
+    float:right;
+  }
+}
+
+div#personalInfo{
+  form{
+    width:60%;
+    display:flex;
+    flex-direction: column;
+    //flex-wrap: wrap;
+    align-items: flex-start;
+    div#reviseIcon{
+      height:150px;
+      img{
+        width:130px;
+        height:130px;
+        cursor:pointer;
+      }
+    }
+    div.formItemSelf{
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      height:60px;
+      h2{
+        width:80px;
+        line-height:14px;
+        color:$grayL;
+      }
+      label.mdl-radio{
+        margin-right:20px;
+      }
+    }
+    .buttonArea{
+      margin-top:40px;
+      //width:150px;
+      display: flex;
+      flex-direction: row;
+      button{
+        width:80px;
+      }
+      button#submit{
+        background-color: $yellow;
+      }
+      button#cancel{
+        color:$grayL;
+      }
+    }
+  }
+  div.mdl-textfield{
+    padding-top:0;
+    width:400px;
+    //margin-left:20px;
+    //flex-basis:max-content;
+    display: flex;
+    flex-direction: row;
+  }
+  a button.mdl-button--accent{
+    position: absolute;
+    top:0;
+    float:right;
+    margin-top:10px;
+    color: $greenD;
+    //font-weight: bold;
+  }
+  button#reviseInfo{
+    right:10px;
+  }
+  button#revisePw{
+    right:100px;
+  }
+}
+
+div#friendsList{
+  width: 690px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.friendCard{
+  @include block;
+  width:335px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img{
+    margin-right:20px;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+  }
+  h2{
+    font-size:1.6rem;
+    line-height:2rem;
+  }
+  h3{
+    color:$grayL;
+    line-height:2rem;
+  }
+  i{
+    color:$grayL;
+  }
+  .buttonArea{
+    margin-left:auto;
+    button{
+      padding:2px 2px;
+      line-height:1.8rem;
+      width:40px;
+      min-width:40px;
+      height:25px;
+    }
+    button.agree{
+      color:$orange;
+    }
+    button.disagree{
+      color:$grayL
+    }
+  }
+}
+
+div.userCard{
+  @include block;
+  width:250px;
+  .userCardUp{
+    //padding-right:25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    img{
+      margin-right:20px;
+      width:50px;
+      height:50px;
+      border-radius: 50%;
+    }
+    div#briefInfo{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex-grow: 1;
+    }
+    div#exp{
+      margin-top:10px;
+      width:100%;
+      height:5px;
+      background-color: #dedede;
+    }
+    div#exp_gain{
+      width:80%;
+      height:100%;
+      background-color: $grayD;
+    }
+    h2{
+      font-size:1.6rem;
+      line-height:2rem;
+    }
+    h3{
+      color:$grayL;
+      line-height:2rem;
+    }
+    i{
+      color:$grayL;
+    }
+  }
+  .userCardDown{
+    width:100%;
+    ul{
+      width:100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      li{
+        width:50%;
+        padding:20px 10px 0 10px;
+        box-sizing: border-box;
+        p{
+          text-align:center;
+        }
+        p.momentInfoNum{
+          font-size:1.6rem;
+          color:$orange;
+        }
+        p.momentInfoName{
+          color:$grayL;
+        }
+      }
+    }
+  }
+}
+
+div#competitionManage{
+  table{
+    width:100%;
+    margin-top:20px;
+    tr.tableRow:hover{
+      background-color: $greenL;
+    }
+    button{
+      padding:0;
+      min-width:50px;
+    }
+  }
+}
+
+div#signIn_bg{
+  width:100vw;
+  height:100vh;
+  background: url("../../img/background_signin.jpg");
+  background-size:cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  div#signIn{
+    @include block;
+    width:350px;
+    height:300px;
+    form{
+      div.mdl-textfield{
+        margin-top:20px;
+        label{
+          color:$grayL;
+        }
+        input{
+          color:$greenD;
+        }
+      }
+      button{
+        width:100%;
+      }
+      button#login{
+        margin-top:30px;
+        background-color: $yellow;
+      }
+      button#signup{
+        margin-top:10px;
+        background-color: $greenL;
+      }
+    }
+  }
+}

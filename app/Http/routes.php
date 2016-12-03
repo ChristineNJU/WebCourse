@@ -30,3 +30,28 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
     Route::resource('pages', 'PagesController');
     Route::resource('comments', 'CommentsController');
 });
+
+Route::get('admin','admin\AdminController@index');
+
+Route::group(['prefix' => 'activity', 'namespace' => 'Activity'], function()
+{
+    Route::get('/', 'ActivityController@index');
+    Route::get('/detail/{id}', 'ActivityController@sport');
+});
+
+Route::group(['prefix' => 'health', 'namespace' => 'Health'], function()
+{
+    Route::get('/', 'HealthController@index');
+    Route::get('/sport', 'HealthController@sports');
+    Route::get('/sleep', 'HealthController@sleeps');
+});
+
+Route::get('moments','MomentsController@index');
+
+Route::group(['prefix' => 'user', 'namespace' => 'User'], function()
+{
+    Route::get('/', 'UserController@index');
+    Route::get('/revisePW', 'UserController@revisePW');
+    Route::get('/friends', 'FriendController@index');
+    Route::get('/friends/apply', 'FriendController@applies');
+});

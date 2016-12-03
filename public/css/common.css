@@ -1,0 +1,519 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+form, fieldset, input, textarea, p {
+  padding: 0;
+  margin: 0;
+  position: relative; }
+
+blockquote {
+  text-indent: -24px; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+fieldset, img {
+  border: 0; }
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-weight: normal;
+  font-style: normal; }
+
+ol, ul {
+  list-style: none; }
+
+caption, th {
+  text-align: left; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 100%; }
+
+q:before, q:after {
+  content: ''; }
+
+abbr, acronym {
+  border: 0; }
+
+/*
+ * self-defined attributes
+ */
+h1, h2, h3, h4, h5, h6, input, button, select {
+  outline: 0;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif; }
+
+/*
+* common styles
+*/
+html {
+  font-size: 65%; }
+
+body {
+  font-weight: lighter;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  background: #f6f6f6; }
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  color: white;
+  background: #96a04d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999; }
+  header .headerWrapper {
+    margin: 0 auto;
+    width: 960px;
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
+
+div#logo_wrapper {
+  font-size: 3rem;
+  font-style: italic;
+  align-self: stretch;
+  flex-basis: 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center; }
+
+nav#headerNav {
+  padding-left: 50px;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  font-size: 1.4rem; }
+  nav#headerNav a {
+    padding: 10px 25px;
+    color: white;
+    text-decoration: none;
+    box-sizing: border-box; }
+  nav#headerNav a.active {
+    border-bottom: 3px #fad957 solid; }
+  nav#headerNav .mdl-menu a {
+    padding: 0 25px;
+    color: #434343; }
+
+div.main {
+  margin: 190px auto auto auto;
+  width: 960px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; }
+
+nav#mainNav {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px 0 0 0;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  flex-grow: 0;
+  height: auto; }
+  nav#mainNav a {
+    margin-bottom: 10px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    color: #959595; }
+  nav#mainNav a.active {
+    background: #c5cd8e;
+    color: white; }
+
+h1 {
+  font-size: 1.4rem; }
+
+div.mainContent {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 690px;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  div.mainContent #datePicker {
+    position: absolute;
+    right: 20px;
+    top: 20px; }
+  div.mainContent h1 {
+    width: auto; }
+  div.mainContent ul {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end; }
+  div.mainContent p {
+    color: #959595; }
+    div.mainContent p span {
+      color: #ff9e3d;
+      font-size: 3rem; }
+  div.mainContent p.sleepNum span {
+    font-size: 2rem; }
+  div.mainContent div.graphic {
+    width: 100%;
+    height: 300px;
+    background-color: #eee; }
+
+div#userCardMoment {
+  padding: 10px 0 10px 0;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.8rem;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  height: auto; }
+  div#userCardMoment img#userIcon {
+    margin: 25px auto 5px auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; }
+  div#userCardMoment h2 {
+    font-size: 1.4rem; }
+  div#userCardMoment ul#momentInfo {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%; }
+    div#userCardMoment ul#momentInfo li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1; }
+      div#userCardMoment ul#momentInfo li p.momentInfoNum {
+        font-size: 1.8rem;
+        color: #ff9e3d; }
+      div#userCardMoment ul#momentInfo li p.momentInfoName {
+        font-size: 1rem;
+        color: #959595; }
+
+div.mdl-textfield {
+  padding-bottom: 0; }
+  div.mdl-textfield label:after {
+    background-color: #c5cd8e;
+    bottom: 0; }
+
+div#momentNew div.mdl-textfield {
+  width: 100%;
+  border-bottom: #96a04d;
+  padding-bottom: 0; }
+  div#momentNew div.mdl-textfield label {
+    font-size: 1.4rem; }
+  div#momentNew div.mdl-textfield label:after {
+    background-color: #c5cd8e;
+    bottom: 0; }
+div#momentNew div.momentNewTools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  div#momentNew div.momentNewTools label {
+    color: #959595; }
+  div#momentNew div.momentNewTools button {
+    color: #ff9e3d; }
+
+div.moment div.momentsInfo {
+  display: flex; }
+  div.moment div.momentsInfo img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; }
+  div.moment div.momentsInfo div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    div.moment div.momentsInfo div h2 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1.6rem; }
+    div.moment div.momentsInfo div h3 {
+      line-height: 1.6rem; }
+div.moment section {
+  margin-left: 60px;
+  margin-top: 15px;
+  margin-right: 10px; }
+
+a {
+  text-decoration: none; }
+
+div.competition {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer; }
+  div.competition img.competitionIcon {
+    margin-right: 20px;
+    width: 30px;
+    height: 30px; }
+  div.competition div.competitionBrief {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1; }
+    div.competition div.competitionBrief h2 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+      color: #434343; }
+    div.competition div.competitionBrief h3 {
+      line-height: 1.6rem;
+      color: #959595; }
+  div.competition div.competitionPeople {
+    text-align: center; }
+    div.competition div.competitionPeople h4 {
+      color: #434343;
+      font-size: 2.6rem; }
+    div.competition div.competitionPeople h5 {
+      color: #959595; }
+
+div#competitionDetail h1 {
+  margin: 30px 0 10px 0;
+  font-size: 1.2rem; }
+div#competitionDetail img {
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; }
+div#competitionDetail div#competitionContent {
+  padding-left: 50px; }
+  div#competitionDetail div#competitionContent button {
+    margin-top: 20px;
+    background-color: #fad957; }
+  div#competitionDetail div#competitionContent div.creatorInfo {
+    display: flex;
+    flex-direction: row; }
+    div#competitionDetail div#competitionContent div.creatorInfo div {
+      padding: 3px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+    div#competitionDetail div#competitionContent div.creatorInfo p.name {
+      font-size: 1.6rem;
+      color: #434343; }
+
+nav.navSecond {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  padding: 15px 20px;
+  width: 690px; }
+  nav.navSecond a {
+    color: #434343;
+    margin-right: 10px; }
+  nav.navSecond button {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 50px;
+    float: right; }
+
+div#personalInfo form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+  div#personalInfo form div#reviseIcon {
+    height: 150px; }
+    div#personalInfo form div#reviseIcon img {
+      width: 130px;
+      height: 130px;
+      cursor: pointer; }
+  div#personalInfo form div.formItemSelf {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 60px; }
+    div#personalInfo form div.formItemSelf h2 {
+      width: 80px;
+      line-height: 14px;
+      color: #959595; }
+    div#personalInfo form div.formItemSelf label.mdl-radio {
+      margin-right: 20px; }
+  div#personalInfo form .buttonArea {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row; }
+    div#personalInfo form .buttonArea button {
+      width: 80px; }
+    div#personalInfo form .buttonArea button#submit {
+      background-color: #fad957; }
+    div#personalInfo form .buttonArea button#cancel {
+      color: #959595; }
+div#personalInfo div.mdl-textfield {
+  padding-top: 0;
+  width: 400px;
+  display: flex;
+  flex-direction: row; }
+div#personalInfo a button.mdl-button--accent {
+  position: absolute;
+  top: 0;
+  float: right;
+  margin-top: 10px;
+  color: #96a04d; }
+div#personalInfo button#reviseInfo {
+  right: 10px; }
+div#personalInfo button#revisePw {
+  right: 100px; }
+
+div#friendsList {
+  width: 690px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.friendCard {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  width: 335px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .friendCard img {
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; }
+  .friendCard h2 {
+    font-size: 1.6rem;
+    line-height: 2rem; }
+  .friendCard h3 {
+    color: #959595;
+    line-height: 2rem; }
+  .friendCard i {
+    color: #959595; }
+  .friendCard .buttonArea {
+    margin-left: auto; }
+    .friendCard .buttonArea button {
+      padding: 2px 2px;
+      line-height: 1.8rem;
+      width: 40px;
+      min-width: 40px;
+      height: 25px; }
+    .friendCard .buttonArea button.agree {
+      color: #ff9e3d; }
+    .friendCard .buttonArea button.disagree {
+      color: #959595; }
+
+div.userCard {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  width: 250px; }
+  div.userCard .userCardUp {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    div.userCard .userCardUp img {
+      margin-right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; }
+    div.userCard .userCardUp div#briefInfo {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex-grow: 1; }
+    div.userCard .userCardUp div#exp {
+      margin-top: 10px;
+      width: 100%;
+      height: 5px;
+      background-color: #dedede; }
+    div.userCard .userCardUp div#exp_gain {
+      width: 80%;
+      height: 100%;
+      background-color: #434343; }
+    div.userCard .userCardUp h2 {
+      font-size: 1.6rem;
+      line-height: 2rem; }
+    div.userCard .userCardUp h3 {
+      color: #959595;
+      line-height: 2rem; }
+    div.userCard .userCardUp i {
+      color: #959595; }
+  div.userCard .userCardDown {
+    width: 100%; }
+    div.userCard .userCardDown ul {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row; }
+      div.userCard .userCardDown ul li {
+        width: 50%;
+        padding: 20px 10px 0 10px;
+        box-sizing: border-box; }
+        div.userCard .userCardDown ul li p {
+          text-align: center; }
+        div.userCard .userCardDown ul li p.momentInfoNum {
+          font-size: 1.6rem;
+          color: #ff9e3d; }
+        div.userCard .userCardDown ul li p.momentInfoName {
+          color: #959595; }
+
+div#competitionManage table {
+  width: 100%;
+  margin-top: 20px; }
+  div#competitionManage table tr.tableRow:hover {
+    background-color: #c5cd8e; }
+  div#competitionManage table button {
+    padding: 0;
+    min-width: 50px; }
+
+div#signIn_bg {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../img/background_signin.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  div#signIn_bg div#signIn {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    width: 350px;
+    height: 300px; }
+    div#signIn_bg div#signIn form div.mdl-textfield {
+      margin-top: 20px; }
+      div#signIn_bg div#signIn form div.mdl-textfield label {
+        color: #959595; }
+      div#signIn_bg div#signIn form div.mdl-textfield input {
+        color: #96a04d; }
+    div#signIn_bg div#signIn form button {
+      width: 100%; }
+    div#signIn_bg div#signIn form button#login {
+      margin-top: 30px;
+      background-color: #fad957; }
+    div#signIn_bg div#signIn form button#signup {
+      margin-top: 10px;
+      background-color: #c5cd8e; }
+
+/*# sourceMappingURL=common.css.map */
