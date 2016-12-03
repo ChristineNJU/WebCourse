@@ -20,4 +20,6 @@ class HealthController extends Controller
     public function sleeps(){
         return view('front.health_sleep');
     }
+
+
 }

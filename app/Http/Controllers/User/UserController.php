@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     public function index(){
-        return view('front.persionInfo');
+        return view('front.personalInfo');
     }
 
     public function revisePW(){

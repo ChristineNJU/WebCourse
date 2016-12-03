@@ -36,17 +36,17 @@ Route::get('admin','admin\AdminController@index');
 Route::group(['prefix' => 'activity', 'namespace' => 'Activity'], function()
 {
     Route::get('/', 'ActivityController@index');
-    Route::get('/detail/{id}', 'ActivityController@sport');
+    Route::get('/detail/{id}', 'ActivityController@detail');
 });
 
 Route::group(['prefix' => 'health', 'namespace' => 'Health'], function()
 {
     Route::get('/', 'HealthController@index');
-    Route::get('/sport', 'HealthController@sports');
+    Route::get('/sports', 'HealthController@sports');
     Route::get('/sleep', 'HealthController@sleeps');
 });
 
-Route::get('moments','MomentsController@index');
+Route::get('moments','PagesController@moments');
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function()
 {

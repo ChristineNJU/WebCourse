@@ -13,7 +13,8 @@ class ActivityController extends Controller
         return view('front.competition_all');
     }
 
-    public function detail(){
+    public function detail($id){
+//        echo($id);
         return view('front.competition_detail');
     }
 }

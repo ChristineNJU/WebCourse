@@ -18,9 +18,9 @@
         </div>
         <nav id="headerNav">
             <a href="#">首页</a>
-            <a href="competition_all.blade.php">竞赛</a>
-            <a href="health_total.blade.php">健康</a>
-            <a class="active" href="moments.blade.php">好友圈</a>
+            <a class="" href="/activity">竞赛</a>
+            <a href="/health">健康</a>
+            <a class="active" href="/moments">好友圈</a>
             <button id="personal"
                     class="mdl-button mdl-js-button mdl-button--icon"
                     style="margin-left:auto;">
@@ -28,8 +28,8 @@
             </button>
             <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                  for="personal">
-                <a href="personalInfo.blade.php" class="mdl-menu__item">个人资料</a>
-                <a href="personalFriends.blade.php" class="mdl-menu__item">好友管理</a>
+                <a href="/user" class="mdl-menu__item">个人资料</a>
+                <a href="/user/frinds" class="mdl-menu__item">好友管理</a>
                 <a class="mdl-menu__item">登出</a>
             </div>
         </nav>

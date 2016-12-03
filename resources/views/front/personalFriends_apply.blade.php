@@ -18,9 +18,9 @@
         </div>
         <nav id="headerNav">
             <a href="#">首页</a>
-            <a href="competition_all.blade.php">竞赛</a>
-            <a href="health_total.blade.php">健康</a>
-            <a href="moments.blade.php">好友圈</a>
+            <a class="" href="/activity">竞赛</a>
+            <a href="/health">健康</a>
+            <a href="/moments">好友圈</a>
             <button id="personal"
                     class="mdl-button mdl-js-button mdl-button--icon"
                     style="margin-left:auto;">
@@ -28,8 +28,8 @@
             </button>
             <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                  for="personal">
-                <a href="personalInfo.blade.php" class="mdl-menu__item">个人资料</a>
-                <a href="personalFriends.blade.php" class="mdl-menu__item">好友管理</a>
+                <a href="/user" class="mdl-menu__item">个人资料</a>
+                <a href="/user/frinds" class="mdl-menu__item">好友管理</a>
                 <a class="mdl-menu__item">登出</a>
             </div>
         </nav>
@@ -40,7 +40,7 @@
     <div>
         <div class="userCard">
             <div class="userCardUp">
-                <img class="friendIcon" src="../img/icon1.jpg"/>
+                <img class="friendIcon" src="/img/icon1.jpg"/>
                 <div id="briefInfo">
                     <h2>自己</h2>
                     <h3>LV.3</h3>
@@ -74,21 +74,21 @@
         </div>
 
         <nav id="mainNav">
-            <a class="" href="personalInfo.blade.php">个人信息</a>
-            <a class="active" href="personalFriends.blade.php">好友管理</a>
+            <a class="" href="/user">个人信息</a>
+            <a class="active" href="/user/friends">好友管理</a>
         </nav>
     </div>
     <div>
         <nav class="navSecond">
-            <a href="personalFriends.blade.php">好友列表</a>
-            <a href="personalFriends_apply.blade.php" class="mdl-badge" data-badge="4">好友申请</a>
+            <a href="/user/friends">好友列表</a>
+            <a href="/user/friends/apply" class="mdl-badge" data-badge="4">好友申请</a>
         </nav>
 
         <div id="friendsList">
 
 
             <div class="friendCard">
-                <img class="friendIcon" src="../img/icon1.jpg"/>
+                <img class="friendIcon" src="/img/icon1.jpg"/>
                 <div>
                     <h2>一个好友</h2>
                     <h3>LV.3</h3>
@@ -104,7 +104,7 @@
             </div>
 
             <div class="friendCard">
-                <img class="friendIcon" src="../img/icon1.jpg"/>
+                <img class="friendIcon" src="/img/icon1.jpg"/>
                 <div>
                     <h2>一个好友</h2>
                     <h3>LV.3</h3>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="friendCard">
-                <img class="friendIcon" src="../img/icon1.jpg"/>
+                <img class="friendIcon" src="/img/icon1.jpg"/>
                 <div>
                     <h2>一个好友</h2>
                     <h3>LV.3</h3>

@@ -16,4 +16,8 @@ class PagesController extends Controller {
         return view('pages.show')->withPage(Page::find($id));
     }
 
+    public function moments(){
+        return view('front.personalInfo');
+    }
+
 }

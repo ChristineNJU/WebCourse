@@ -18,9 +18,9 @@
         </div>
         <nav id="headerNav">
             <a href="#">首页</a>
-            <a class="active" href="competition_all.blade.php">竞赛</a>
-            <a href="health_total.blade.php">健康</a>
-            <a href="moments.blade.php">好友圈</a>
+            <a class="active" href="/activity">竞赛</a>
+            <a href="/health">健康</a>
+            <a href="/moments">好友圈</a>
             <button id="personal"
                     class="mdl-button mdl-js-button mdl-button--icon"
                     style="margin-left:auto;">
@@ -28,8 +28,8 @@
             </button>
             <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                  for="personal">
-                <a href="personalInfo.blade.php" class="mdl-menu__item">个人资料</a>
-                <a href="personalFriends.blade.php" class="mdl-menu__item">好友管理</a>
+                <a href="/user" class="mdl-menu__item">个人资料</a>
+                <a href="/user/frinds" class="mdl-menu__item">好友管理</a>
                 <a class="mdl-menu__item">登出</a>
             </div>
         </nav>
@@ -53,13 +53,13 @@
     </div>
     <div>
         <nav class="navSecond">
-            <a href="personalFriends.blade.php">所有竞赛</a>
-            <a href="personalFriends_apply.blade.php">我参与的</a>
+            <a href="/activity">所有竞赛</a>
+            <a href="/activity">我参与的</a>
         </nav>
         <div>
-            <a href="competition_detail.blade.php">
+            <a href="activity/detail">
                 <div class="competition mainContent mdl-js-button mdl-js-ripple-effect">
-                    <img class="competitionIcon" src="../img/icon_flag.png"/>
+                    <img class="competitionIcon" src="/img/icon_flag.png"/>
                     <div class="competitionBrief">
                         <div>
                             <h2>一天跑步时长比拼</h2>
@@ -73,9 +73,9 @@
                 </div>
             </a>
 
-            <a href="competition_detail.blade.php">
+            <a href="activity/detail">
                 <div class="competition mainContent">
-                    <img class="competitionIcon" src="../img/icon_pk.png"/>
+                    <img class="competitionIcon" src="/img/icon_pk.png"/>
                     <div class="competitionBrief">
                         <div>
                             <h2>一个比赛</h2>

@@ -18,9 +18,9 @@
         </div>
         <nav id="headerNav">
             <a href="#">首页</a>
-            <a class="active" href="competition_all.blade.php">竞赛</a>
-            <a href="health_total.blade.php">健康</a>
-            <a href="moments.blade.php">好友圈</a>
+            <a class="active" href="/activity">竞赛</a>
+            <a href="/health">健康</a>
+            <a href="/moments">好友圈</a>
             <button id="personal"
                     class="mdl-button mdl-js-button mdl-button--icon"
                     style="margin-left:auto;">
@@ -28,8 +28,8 @@
             </button>
             <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                  for="personal">
-                <a href="personalInfo.blade.php" class="mdl-menu__item">个人资料</a>
-                <a href="personalFriends.blade.php" class="mdl-menu__item">好友管理</a>
+                <a href="/user" class="mdl-menu__item">个人资料</a>
+                <a href="/user/frinds" class="mdl-menu__item">好友管理</a>
                 <a class="mdl-menu__item">登出</a>
             </div>
         </nav>
@@ -53,7 +53,7 @@
     </div>
     <div style="width:690px;">
         <nav class="navSecond">
-            <a href="competition_all.blade.php"> <- 返回全部竞赛</a>
+            <a href="/activity"> <- 返回全部竞赛</a>
             <!--<button id="participate2" class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent">-->
                 <!--我要参加-->
             <!--</button>-->

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Moments;
+namespace App\Http\Controllers\Moments\MomentsController;
 
 use Illuminate\Http\Request;
 
@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 class MomentsController extends Controller
 {
     public function index(){
-        return view('front.moments');
+        return view('front.personalInfo');
     }
+
 }
