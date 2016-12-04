@@ -33,7 +33,6 @@ class PagesController extends Controller {
         $moments = DB::table('moments')->where('userid', $userId)->orderBy('created_at','DESC')->get();
         $count = DB::table('moments')->where('userid', $userId)->count();
 
-//        return $moments;
         return view('front.moments')
             ->with('moments',$moments)
             ->with('count',$count);

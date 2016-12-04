@@ -81,28 +81,28 @@
 
     <div id="personalInfo" class="mainContent">
         <h1>个人信息</h1>
-        <a href="#">
-            <button id="reviseInfo" class="mdl-button mdl-js-button mdl-button--accent">
-                修改资料
-            </button>
-        </a>
-        <a href="personalInfo_revisePw.blade.php">
-            <button id="revisePw" class="mdl-button mdl-js-button mdl-button--accent">
-                修改密码
-            </button>
-        </a>
+        {{--<a href="#">--}}
+            {{--<button id="reviseInfo" class="mdl-button mdl-js-button mdl-button--accent">--}}
+                {{--修改资料--}}
+            {{--</button>--}}
+        {{--</a>--}}
+        {{--<a href="user/revisePW">--}}
+            {{--<button id="revisePw" class="mdl-button mdl-js-button mdl-button--accent">--}}
+                {{--修改密码--}}
+            {{--</button>--}}
+        {{--</a>--}}
         <form>
             <div id="reviseIcon" class="formItemSelf">
                 <h2>头像</h2>
                 <div class="">
-                    <img src="../img/icon1.jpg"/>
+                    <img src="/img/{{$user->avatar}}.jpg"/>
                 </div>
             </div>
 
             <div class="formItemSelf">
                 <h2>用户名</h2>
                 <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" id="userId" readonly="readonly"/>
+                    <input class="mdl-textfield__input" type="text" id="userId" value={{$name}} readonly="readonly"/>
                     <label class="mdl-textfield__label" for="userId"></label>
                 </div>
             </div>
@@ -110,7 +110,7 @@
             <div class="formItemSelf">
                 <h2>昵称</h2>
                 <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" id="userName" />
+                    <input class="mdl-textfield__input" type="text" value={{$user->nickname}} id="userName" />
                     <label class="mdl-textfield__label" for="userName"></label>
                 </div>
             </div>
@@ -118,7 +118,7 @@
             <div class="formItemSelf">
                 <h2>居住地</h2>
                 <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" id="city" />
+                    <input class="mdl-textfield__input" type="text" value={{$user->address}} id="city" />
                     <label class="mdl-textfield__label" for="city"></label>
                 </div>
             </div>
@@ -126,11 +126,13 @@
             <div class="formItemSelf">
                 <h2>性别</h2>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1"
+                           @if ($user->gender == '男') checked @endif>
                     <span class="mdl-radio__label">男</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2"
+                           @if ($user->gender == '女') checked @endif>
                     <span class="mdl-radio__label">女</span>
                 </label>
             </div>
