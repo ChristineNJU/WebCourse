@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>单个竞赛</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="keywords" content="运动,社交,南京大学,软件学院,面向WEB的计算,大作业">
 
     <script type="text/javascript" src="/material-design/material.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
