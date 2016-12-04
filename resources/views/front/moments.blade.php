@@ -33,7 +33,7 @@
             <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                  for="personal">
                 <a href="/user" class="mdl-menu__item">个人资料</a>
-                <a href="/user/frinds" class="mdl-menu__item">好友管理</a>
+                <a href="/user/friends" class="mdl-menu__item">好友管理</a>
                 <a class="mdl-menu__item">登出</a>
             </div>
         </nav>
@@ -72,9 +72,9 @@
         @foreach ($moments as $moment)
         <div class="moment mainContent">
             <div class="momentsInfo">
-                <img src="/img/icon1.jpg"/>
+                <img src="/img/{{$moment->avatar}}.jpg"/>
                 <div>
-                    <h2>Christine张</h2>
+                    <h2>{{$moment->nickname}}</h2>
                     <h3>{{$moment->updated_at}}</h3>
                 </div>
             </div>
@@ -84,18 +84,18 @@
         </div>
         @endforeach
 
-        <div class="moment mainContent">
-            <div class="momentsInfo">
-                <img src="/img/icon2.jpg"/>
-                <div>
-                    <h2>Jack</h2>
-                    <h3>2016-09-20 10:00</h3>
-                </div>
-            </div>
-            <section>
-                健了个身
-            </section>
-        </div>
+        {{--<div class="moment mainContent">--}}
+            {{--<div class="momentsInfo">--}}
+                {{--<img src="/img/icon2.jpg"/>--}}
+                {{--<div>--}}
+                    {{--<h2>Jack</h2>--}}
+                    {{--<h3>2016-09-20 10:00</h3>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<section>--}}
+                {{--健了个身--}}
+            {{--</section>--}}
+        {{--</div>--}}
     </div>
 </div>
 
@@ -123,7 +123,6 @@
                 url:'/moments/new',
                 dataType:'json',
                 beforeSend:function(){
-
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

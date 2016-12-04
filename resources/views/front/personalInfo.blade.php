@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    <sctipt type="text/javascript" src="/js/jquery-2.2.3.js"></sctipt>
 </head>
 <body>
 <header>
@@ -81,16 +81,7 @@
 
     <div id="personalInfo" class="mainContent">
         <h1>个人信息</h1>
-        {{--<a href="#">--}}
-            {{--<button id="reviseInfo" class="mdl-button mdl-js-button mdl-button--accent">--}}
-                {{--修改资料--}}
-            {{--</button>--}}
-        {{--</a>--}}
-        {{--<a href="user/revisePW">--}}
-            {{--<button id="revisePw" class="mdl-button mdl-js-button mdl-button--accent">--}}
-                {{--修改密码--}}
-            {{--</button>--}}
-        {{--</a>--}}
+
         <form>
             <div id="reviseIcon" class="formItemSelf">
                 <h2>头像</h2>
@@ -110,7 +101,7 @@
             <div class="formItemSelf">
                 <h2>昵称</h2>
                 <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" value={{$user->nickname}} id="userName" />
+                    <input id="nickname" class="mdl-textfield__input" type="text" value={{$user->nickname}} id="userName" />
                     <label class="mdl-textfield__label" for="userName"></label>
                 </div>
             </div>
@@ -118,7 +109,7 @@
             <div class="formItemSelf">
                 <h2>居住地</h2>
                 <div class="mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text" value={{$user->address}} id="city" />
+                    <input id="address" class="mdl-textfield__input" type="text" value={{$user->address}} id="city" />
                     <label class="mdl-textfield__label" for="city"></label>
                 </div>
             </div>
@@ -154,5 +145,26 @@
 <footer>
 
 </footer>
+<sctipt type="text/javascript" src="/js/jquery-2.2.3.js"></sctipt>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    window.onload = function(){
+        $('#submit').on('click',function(e){
+            e.preventDefault();
+            $.ajax({
+                type:'post'
+                beforeSend:function(){
+//                    $("#submit").disable();
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data:{
+                    nickname:content,
+                },
+            })
+        });
+    }
+</script>
 </body>
 </html>

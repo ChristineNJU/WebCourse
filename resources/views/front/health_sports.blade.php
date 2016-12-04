@@ -33,7 +33,7 @@
             <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                  for="personal">
                 <a href="/user" class="mdl-menu__item">个人资料</a>
-                <a href="/user/frinds" class="mdl-menu__item">好友管理</a>
+                <a href="/user/friends" class="mdl-menu__item">好友管理</a>
                 <a class="mdl-menu__item">登出</a>
             </div>
         </nav>
