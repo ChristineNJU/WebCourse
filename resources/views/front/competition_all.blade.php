@@ -62,7 +62,7 @@
     <div>
         <nav class="navSecond">
             <a href="/activity">所有竞赛</a>
-            <a href="/activity">我参与的</a>
+            <a href="/activity">我发起的</a>
         </nav>
         <div>
             <a href="activity/detail/1">

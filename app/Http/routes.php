@@ -38,6 +38,7 @@ Route::group(['prefix' => 'activity', 'namespace' => 'Activity'], function()
     Route::get('/', 'ActivityController@index');
     Route::get('/detail/{id}', 'ActivityController@detail');
     Route::get('/new', 'ActivityController@newActivity');
+    Route::get('/edit/{id}', 'ActivityController@editActivity');
 });
 
 Route::group(['prefix' => 'health', 'namespace' => 'Health'], function()
