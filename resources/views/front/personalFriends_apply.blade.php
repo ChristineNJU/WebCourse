@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>好友管理</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script type="text/javascript" src="/material-design/material.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
@@ -81,59 +82,30 @@
     <div>
         <nav class="navSecond">
             <a href="/user/friends">好友列表</a>
-            <a href="/user/friends/apply" class="mdl-badge" data-badge="4">好友申请</a>
+            <a href="/user/friends/apply" class="@if( $count > 0 ) mdl-badge @endif" data-badge="{{$count}}">好友申请</a>
         </nav>
 
         <div id="friendsList">
-
-
+            @foreach($applies as $apply)
             <div class="friendCard">
-                <img class="friendIcon" src="/img/icon1.jpg"/>
+                <img class="friendIcon" src="/img/{{$apply->avatar}}.jpg"/>
                 <div>
-                    <h2>一个好友</h2>
-                    <h3>LV.3</h3>
+                    <h2>{{$apply->nickname}}</h2>
                 </div>
                 <div class="buttonArea">
-                    <button class="agree mdl-button mdl-js-button mdl-button--accent">
+                    @if($apply->status == 1)
+                    <button onClick=agree({{$apply->applyer}}) class="agree mdl-button mdl-js-button mdl-button--accent">
                         同意
                     </button>
-                    <button class="disagree mdl-button mdl-js-button mdl-button--accent">
+                    <button onClick=disagree({{$apply->applyer}}) class="disagree mdl-button mdl-js-button mdl-button--accent">
                         拒绝
                     </button>
+                    @else
+                    已拒绝
+                    @endif
                 </div>
             </div>
-
-            <div class="friendCard">
-                <img class="friendIcon" src="/img/icon1.jpg"/>
-                <div>
-                    <h2>一个好友</h2>
-                    <h3>LV.3</h3>
-                </div>
-                <div class="buttonArea">
-                    <button class="agree mdl-button mdl-js-button mdl-button--accent">
-                        同意
-                    </button>
-                    <button class="disagree mdl-button mdl-js-button mdl-button--accent">
-                        拒绝
-                    </button>
-                </div>
-            </div>
-
-            <div class="friendCard">
-                <img class="friendIcon" src="/img/icon1.jpg"/>
-                <div>
-                    <h2>一个好友</h2>
-                    <h3>LV.3</h3>
-                </div>
-                <div class="buttonArea">
-                    <button class="agree mdl-button mdl-js-button mdl-button--accent">
-                        同意
-                    </button>
-                    <button class="disagree mdl-button mdl-js-button mdl-button--accent">
-                        拒绝
-                    </button>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -141,5 +113,52 @@
 <footer>
 
 </footer>
+<sctipt type="text/javascript" src="/js/jquery-2.2.3.js"></sctipt>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    function agree(deleted){
+        console.log(deleted);
+        $.ajax({
+            type:'post',
+            url:'/user/friends/agree',
+            beforeSend:function(){
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data:{
+                passive:deleted,
+            },
+            success:function(){
+                location.replace('/user/friends');
+            },
+            fail:function(){
+
+            }
+        })
+    }
+
+    function disagree(deleted){
+        console.log(deleted);
+        $.ajax({
+            type:'post',
+            url:'/user/friends/disagree',
+            beforeSend:function(){
+            },
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data:{
+                passive:deleted,
+            },
+            success:function(){
+                location.reload();
+            },
+            fail:function(){
+
+            }
+        })
+    }
+</script>
 </body>
 </html>

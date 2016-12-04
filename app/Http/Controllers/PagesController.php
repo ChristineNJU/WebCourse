@@ -30,26 +30,21 @@ class PagesController extends Controller {
 
     public function moments(){
         $userId = Auth::user()['id'];
-//        $moments = DB::table('moments')->where('userid', $userId)->orderBy('created_at','DESC')->get();
-//        foreach($moments as $moment){
-//            $moment->nickname = 'Christine张';
-//            $moment->avatar = 'icon1';
-//        }
+
         $res = DB::select('SELECT moments.userid,moments.content,moments.updated_at,user_infos.nickname,user_infos.avatar
-FROM moments LEFT JOIN user_infos on moments.userid = user_infos.userid
-WHERE moments.userid in (SELECT applyer FROM friends WHERE applied = ? )
-  OR moments.userid = ?
-ORDER BY moments.updated_at DESC ;',[$userId,$userId]);
+                        FROM moments LEFT JOIN user_infos on moments.userid = user_infos.userid
+                        WHERE moments.userid in (SELECT applyer FROM friends WHERE applied = ? )
+                          OR moments.userid = ?
+                        ORDER BY moments.updated_at DESC ;',[$userId,$userId]);
 
         $count = DB::table('moments')->where('userid', $userId)->count();
 
-//        $allmoments = array_merge($moments,$res);
         return view('front.moments')
             ->with('moments',$res)
             ->with('count',$count);
     }
 
-    public function newMoment(\Request $request){
+    public function newMoment(){
         $user = Auth::user()->id;
 
         $date = date('Y-m-d H:i:s',time());

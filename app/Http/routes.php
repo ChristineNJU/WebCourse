@@ -63,6 +63,9 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function()
     Route::get('/revisePW', 'UserController@revisePW');
     Route::get('/friends', 'FriendController@index');
     Route::get('/friends/apply', 'FriendController@applies');
+    Route::post('/friends/deleteFriend', 'FriendController@deleteFriend');
+    Route::post('/friends/agree', 'FriendController@agree');
+    Route::post('/friends/disagree', 'FriendController@disagree');
 });
 Route::auth();
 
