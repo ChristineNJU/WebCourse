@@ -14,10 +14,10 @@ class SportsTableSeeder extends Seeder {
     public function run()
     {
 //        DB::table('sports')->delete();
-        $date= date_create("2016-11-23");
+        $date= date_create("2016-07-01");
         $diff1Day = new DateInterval('P1D');
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 150; $i++) {
 
             $sports = '';
             $miles = 0;

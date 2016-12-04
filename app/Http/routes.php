@@ -44,8 +44,11 @@ Route::group(['prefix' => 'activity', 'namespace' => 'Activity'], function()
 Route::group(['prefix' => 'health', 'namespace' => 'Health'], function()
 {
     Route::get('/', 'HealthController@index');
+    Route::get('/getData', 'HealthController@getData');
     Route::get('/sports', 'HealthController@sports');
+    Route::get('/sports/{date}', 'HealthController@sportsData');
     Route::get('/sleep', 'HealthController@sleeps');
+    Route::get('/sleep/{date}', 'HealthController@sleepData');
 });
 
 Route::get('moments','PagesController@moments');

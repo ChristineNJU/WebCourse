@@ -44,11 +44,10 @@
     </nav>
     <div class="mainContent">
         <h1>本周身体状况</h1>
-        <!--<input id="datePicker" name="datePicker" type="date"/>-->
         <ul>
             <li>
                 <p class="sportsNum">
-                    <span>25公里</span>
+                    <span>{{$health->milesWeek}}公里</span>
                 </p>
                 <p class="sportsTitle">
                     运动距离
@@ -56,7 +55,7 @@
             </li>
             <li>
                 <p class="sleepNum">
-                    <span>87%</span>
+                    <span>{{$health->sleepWeek}}%</span>
                 </p>
                 <p class="sportsTitle">
                     睡眠有效率
@@ -64,7 +63,7 @@
             </li>
             <li>
                 <p class="sleepNum">
-                    <span>19.5</span>
+                    <span>{{$health->pointWeek}}</span>
                 </p>
                 <p class="sportsTitle">
                     健康指数
@@ -77,7 +76,7 @@
         <ul>
             <li>
                 <p class="sportsNum">
-                    <span>25公里</span>
+                    <span>{{$health->miles}}公里</span>
                 </p>
                 <p class="sportsTitle">
                     运动距离
@@ -85,7 +84,7 @@
             </li>
             <li>
                 <p class="sleepNum">
-                    <span>87%</span>
+                    <span>{{$health->sleep}}%</span>
                 </p>
                 <p class="sportsTitle">
                     睡眠有效率
@@ -93,7 +92,7 @@
             </li>
             <li>
                 <p class="sleepNum">
-                    <span>19.5</span>
+                    <span>{{$health->point}}</span>
                 </p>
                 <p class="sportsTitle">
                     健康指数
@@ -101,6 +100,7 @@
             </li>
 
         </ul>
+
     </div>
 </div>
 

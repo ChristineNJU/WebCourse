@@ -50,13 +50,14 @@
     </nav>
     <div class="mainContent">
         <h1>运动情况</h1>
+        <p style="position:absolute;right:210px;top: 20px;font-size: 12px;" id="noDataTip"></p>
         <div id="datePicker">
             <input type="text" id="datePick" name="datePicker" readonly="readonly" />
         </div>
         <ul id="sportsStatics">
             <li>
                 <p class="sportsNum">
-                    <span>13</span>km
+                    <span id="sport"></span>m
                 </p>
                 <p class="sportsTitle">
                     累计运动距离
@@ -64,15 +65,7 @@
             </li>
             <li>
                 <p class="sportsNum">
-                    <span>2</span>day
-                </p>
-                <p class="sportsTitle">
-                    累计运动天数
-                </p>
-            </li>
-            <li>
-                <p class="sportsNum">
-                    <span>55</span>min
+                    <span id="time"></span>min
                 </p>
                 <p class="sportsTitle">
                     累计运动时间
@@ -80,7 +73,7 @@
             </li>
             <li>
                 <p class="sportsNum">
-                    <span>523</span>k
+                    <span id="k"></span>k
                 </p>
                 <p class="sportsTitle">
                     累计燃烧热量
@@ -101,16 +94,15 @@
 <script>
 
     var data = {
-        labels: ["1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00",
-            "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00",
-            "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00",],
+        labels: ["0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00","8:00", "9:00", "10:00", "11:00", "12:00",
+            "13:00", "14:00", "15:00","16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
         datasets: [
             {
                 label: "运动量",
                 fill: false,
                 lineTension: 0.1,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,1)",
+                backgroundColor: "#96a04d",
+                borderColor: "#96a04d",
                 borderCapStyle: 'butt',
                 borderDash: [],
                 borderDashOffset: 0.0,
@@ -119,12 +111,12 @@
                 pointBackgroundColor: "#fff",
                 pointBorderWidth: 1,
                 pointHoverRadius: 5,
-                pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBackgroundColor: "#96a04d",
+                pointHoverBorderColor: "#96a04d",
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: [65, 59, 80, 81, 56, 55, 40],
+                data: [],
                 spanGaps: false,
             }
         ]
@@ -149,6 +141,31 @@
         var month = today.getMonth()+1;
         $('#datePick').val(today.getFullYear()+'-'+month+'-'+today.getDate());
 
+        $('.Zebra_DatePicker').on('click',function(e){
+            var picked = (new Date($('.dp_caption').html()+" "+e.target.innerText));
+            if(picked != 'Invalid Date'){
+                var pickedM = picked.getMonth()+1;
+                pickedM = pickedM < 10 ? '0'+ pickedM : pickedM;
+                var pickedD = picked.getDate();
+                if( pickedD < 10){
+                    pickedD = '0'+pickedD;
+                }
+                var date = picked.getFullYear()+'-'+pickedM+'-'+pickedD;
+                update(date);
+            }
+        });
+
+        var picked = (new Date());
+        if(picked != 'Invalid Date'){
+            var pickedM = picked.getMonth()+1;
+            pickedM = pickedM < 10 ? '0'+ pickedM : pickedM;
+            var pickedD = picked.getDate();
+            if( pickedD < 10){
+                pickedD = '0'+pickedD;
+            }
+            var date = picked.getFullYear()+'-'+pickedM+'-'+pickedD;
+            update(date);
+        }
 
         //init chart
         var ctx = document.getElementById("myChart").getContext("2d");
@@ -156,6 +173,65 @@
             type: "line",
             data: data,
             options:options,
+        });
+    }
+
+    function update(date){
+        $.ajax({
+            type:'get',
+            url:'/health/sports/'+date,
+            success:function(data){
+                console.log(data);
+                if(data.data == null){
+                    $('#noDataTip').html('没有这一天的数据呢，换一天试试看吧_(:зゝ∠)_');
+                    return;
+                }else{
+                    $('#noDataTip').html("哎呦，找到了\\\(●'◡'●\\\)");
+                }
+                var data1 = data.data;
+                $('#sport').html(data1.sport);
+                var minutes = data1.time + '';
+                var temp = minutes.split('.');
+                minutes = Number(temp[0]*60) + Number(temp[1]);
+                $('#time').text(minutes);
+                $('#k').text(data1.k);
+                var cd = data1.miles.split(' ');
+                var newChartData = {
+                    labels:  ["0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00","8:00", "9:00", "10:00", "11:00", "12:00",
+                        "13:00", "14:00", "15:00","16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+                    datasets: [
+                        {
+                            label: "运动量",
+                            fill: false,
+                            lineTension: 0.1,
+                            backgroundColor: "#96a04d",
+                            borderColor: "#96a04d",
+                            borderCapStyle: 'butt',
+                            borderDash: [],
+                            borderDashOffset: 0.0,
+                            borderJoinStyle: 'miter',
+                            pointBorderColor: "#96a04d",
+                            pointBackgroundColor: "#fff",
+                            pointBorderWidth: 1,
+                            pointHoverRadius: 5,
+                            pointHoverBackgroundColor: "#96a04d",
+                            pointHoverBorderColor: "#96a04d",
+                            pointHoverBorderWidth: 2,
+                            pointRadius: 1,
+                            pointHitRadius: 10,
+                            data: cd,
+                            spanGaps: false,
+                        }
+                    ]
+                }
+
+                var ctx = document.getElementById("myChart").getContext("2d");
+                var chartDisplay = new Chart(ctx, {
+                    type: "line",
+                    data: newChartData,
+                    options:options,
+                });
+            }
         });
     }
 </script>

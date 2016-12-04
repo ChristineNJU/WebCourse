@@ -5,7 +5,7 @@
     <title>睡眠情况</title>
 
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    {{--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">--}}
     <link rel="stylesheet" href="/zebra-datepicker/public/css/zebra_datepicker.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
 
@@ -48,13 +48,14 @@
     </nav>
     <div class="mainContent">
         <h1>睡眠情况</h1>
+        <p style="position:absolute;right:210px;top: 20px;font-size: 12px;" id="noDataTip"></p>
         <div id="datePicker">
             <input type="text" id="datePick" name="datePicker"  />
         </div>
         <ul id="sleepStatics">
             <li>
                 <p class="sportsNum">
-                    <span>80%</span>
+                    <span id="rate"></span>
                 </p>
                 <p class="sportsTitle">
                    睡眠有效率
@@ -62,7 +63,7 @@
             </li>
             <li>
                 <p class="sleepNum">
-                    <span>23:50</span>
+                    <span id="begin"></span>
                 </p>
                 <p class="sportsTitle">
                     睡眠开始
@@ -70,7 +71,7 @@
             </li>
             <li>
                 <p class="sleepNum">
-                    <span>6:55</span>
+                    <span id="end"></span>
                 </p>
                 <p class="sportsTitle">
                     睡眠结束
@@ -78,8 +79,7 @@
             </li>
             <li>
                 <p class="sleepNum">
-                    <span>7h</span>
-                    <span>5m</span>
+                    <span id="total"></span>
                 </p>
                 <p class="sportsTitle">
                     睡眠总时长
@@ -87,7 +87,7 @@
             </li>
             <li>
                 <p class="sleepNum">
-                    <span>6h33m</span>
+                    <span id="valid"></span>
                 </p>
                 <p class="sportsTitle">
                     有效睡眠时间
@@ -108,29 +108,29 @@
 </footer>
 
 <script>
-    var data = {
+    var chartData = {
         labels: ["23:50", "00:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00"],
         datasets: [
             {
                 label: "睡眠情况",
                 fill: false,
                 lineTension: 0.1,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,0.4)",
+                backgroundColor: "#96a04d",
+                borderColor: "#96a04d",
                 borderCapStyle: 'butt',
                 borderDash: [],
                 borderDashOffset: 0.0,
                 borderJoinStyle: 'miter',
-                pointBorderColor: "rgba(75,192,192,1)",
+                pointBorderColor: "#96a04d",
                 pointBackgroundColor: "#fff",
                 pointBorderWidth: 1,
                 pointHoverRadius: 5,
-                pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBackgroundColor: "#96a04d",
+                pointHoverBorderColor: "#96a04d",
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: [65, 59, 80, 81, 56, 55, 40],
+                data: [],
                 spanGaps: false,
             }
         ]
@@ -154,18 +154,97 @@
         var today = new Date();
         var month = today.getMonth()+1;
         $('#datePick').val(today.getFullYear()+'-'+month+'-'+today.getDate());
+
         $('.Zebra_DatePicker').on('click',function(e){
-            var picked = (new Date($('.dp_caption').html()+" "+e.target.innerText)    );
-            var pickedM = picked.getMonth()+1;
-            console.log(picked.getFullYear()+'-'+pickedM+'-'+picked.getDate());
+            var picked = (new Date($('.dp_caption').html()+" "+e.target.innerText));
+            if(picked != 'Invalid Date'){
+//                console.log(picked);
+                var pickedM = picked.getMonth()+1;
+                pickedM = pickedM < 10 ? '0'+ pickedM : pickedM;
+                var pickedD = picked.getDate();
+                if( pickedD < 10){
+                    pickedD = '0'+pickedD;
+                }
+                var date = picked.getFullYear()+'-'+pickedM+'-'+pickedD;
+//                console.log(picked.getFullYear()+'-'+pickedM+'-'+pickedD);
+            }
         });
+
+        var picked = (new Date());
+        if(picked != 'Invalid Date'){
+            var pickedM = picked.getMonth()+1;
+            pickedM = pickedM < 10 ? '0'+ pickedM : pickedM;
+            var pickedD = picked.getDate();
+            if( pickedD < 10){
+                pickedD = '0'+pickedD;
+            }
+            var date = picked.getFullYear()+'-'+pickedM+'-'+pickedD;
+            update(date);
+        }
 
         //init chart
         var ctx = document.getElementById("myChart").getContext("2d");
         var chartDisplay = new Chart(ctx, {
             type: "line",
-            data: data,
+            data: chartData,
             options:options,
+        });
+    }
+
+    functon update(date){
+        $.ajax({
+            type:'get',
+            url:'/health/sleep/'+date,
+            success:function(data){
+                console.log(data);
+                if(data.data == null){
+                    $('#noDataTip').html('没有这一天的数据呢，换一天试试看吧_(:зゝ∠)_');
+                    return;
+                }else{
+                    $('#noDataTip').html("哎呦，找到了\\\(●'◡'●\\\)");
+                }
+                var data1 = data.data;
+                $('#rate').html((data1.rate*100+'').substr(0,2)+'%');
+                $('#begin').text(data1.begin);
+                $('#end').text(data1.end);
+                $('#total').text(data1.timeTotal);
+                $('#valid').text(data1.timeValid);
+                var cd = data1.values.split(':');
+                var newChartData = {
+                    labels: [data1.begin, "00:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", data1.end],
+                    datasets: [
+                        {
+                            label: "睡眠情况",
+                            fill: false,
+                            lineTension: 0.1,
+                            backgroundColor: "#96a04d",
+                            borderColor: "#96a04d",
+                            borderCapStyle: 'butt',
+                            borderDash: [],
+                            borderDashOffset: 0.0,
+                            borderJoinStyle: 'miter',
+                            pointBorderColor: "#96a04d",
+                            pointBackgroundColor: "#fff",
+                            pointBorderWidth: 1,
+                            pointHoverRadius: 5,
+                            pointHoverBackgroundColor: "#96a04d",
+                            pointHoverBorderColor: "#96a04d",
+                            pointHoverBorderWidth: 2,
+                            pointRadius: 1,
+                            pointHitRadius: 10,
+                            data: cd,
+                            spanGaps: false,
+                        }
+                    ]
+                }
+
+                var ctx = document.getElementById("myChart").getContext("2d");
+                var chartDisplay = new Chart(ctx, {
+                    type: "line",
+                    data: newChartData,
+                    options:options,
+                });
+            }
         });
     }
 </script>
