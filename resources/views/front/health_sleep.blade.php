@@ -5,6 +5,7 @@
     <title>睡眠情况</title>
 
     <script type="text/javascript" src="/material-design/material.min.js"></script>
+    <script type="text/javascript" src="/chartJS/Chart.js"></script>
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -90,14 +91,68 @@
         </ul>
 
         <h1>睡眠曲线</h1>
-        <div class="graphic">
-
+        <div class="">
+            <canvas id="myChart" width="400" height="200"></canvas>
         </div>
+    </div>
     </div>
 </div>
 
 <footer>
 
 </footer>
+
+<script>
+    var data = {
+        labels: ["23:50", "00:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00"],
+        datasets: [
+            {
+                label: "睡眠情况",
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,0.4)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(75,192,192,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: [65, 59, 80, 81, 56, 55, 40],
+                spanGaps: false,
+            }
+        ]
+    }
+
+    var options = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        },
+        backgroundColor:'white',
+    };
+
+    window.onload = function() {
+        var ctx = document.getElementById("myChart").getContext("2d");
+//        var myNewChart = new Chart(ctx).Line(data);
+        console.log(data);
+        console.log(document.getElementById("myChart").getContext("2d"));
+        var chartDisplay = new Chart(ctx, {
+            type: "line",
+            data: data,
+            options:options,
+        });
+    }
+</script>
 </body>
 </html>
