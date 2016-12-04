@@ -14,8 +14,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 use App\Page;
+use App\moments;
 use Input;
-
+use DB;
 use Auth;
 
 use Redirect;
@@ -28,15 +29,32 @@ class PagesController extends Controller {
     }
 
     public function moments(){
-        return view('front.moments');
+        $userId = Auth::user()['id'];
+        $moments = DB::table('moments')->where('userid', $userId)->orderBy('created_at','DESC')->get();
+        $count = DB::table('moments')->where('userid', $userId)->count();
+
+//        return $moments;
+        return view('front.moments')
+            ->with('moments',$moments)
+            ->with('count',$count);
     }
 
     public function newMoment(\Request $request){
-        $user = Auth::user();
+        $user = Auth::user()->id;
+
+        $date = date('Y-m-d H:i:s',time());
+        DB::table('moments')->insert([
+            'userid' => $user,
+            'content' => $_POST['content'],
+            'created_at' => $date,
+            'updated_at' => $date,
+        ]);
+
+
         $response = array(
             'status' => 'successhhhhh',
             'msg' => 'Article has been posted.',
-            'other' => $user['id'],
+            'content' => $_POST['content'],
         );
         return \Response::json($response);
     }

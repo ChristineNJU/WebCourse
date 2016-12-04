@@ -46,7 +46,7 @@
         <h2>Christine张</h2>
         <ul id="momentInfo">
             <li>
-                <p class="momentInfoNum">32</p>
+                <p class="momentInfoNum">{{$count}}</p>
                 <p class="momentInfoName">动态</p>
             </li>
             <li>
@@ -68,20 +68,22 @@
                 </button>
             </div>
         </div>
+
+        @foreach ($moments as $moment)
         <div class="moment mainContent">
             <div class="momentsInfo">
                 <img src="/img/icon1.jpg"/>
                 <div>
                     <h2>Christine张</h2>
-                    <h3>2016-10-31 10:00</h3>
+                    <h3>{{$moment->updated_at}}</h3>
                 </div>
             </div>
             <section>
-                跑了个半马
-                跑了个半马运动好累啊可是还要微笑着面对hhhhhhhh就为
-                了在朋友圈装一个发个照片晒个马甲线回去就狂吃狂吃
+                {{$moment->content}}
             </section>
         </div>
+        @endforeach
+
         <div class="moment mainContent">
             <div class="momentsInfo">
                 <img src="/img/icon2.jpg"/>
@@ -131,6 +133,7 @@
                 },
                 success:function(data){
                     console.log(data.status);
+                    location.reload();
                 },
                 fail:function(){
                     console.log("fail");
