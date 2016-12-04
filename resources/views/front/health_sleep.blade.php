@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <title>睡眠情况</title>
 
-    <script type="text/javascript" src="/material-design/material.min.js"></script>
-    <script type="text/javascript" src="/chartJS/Chart.js"></script>
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/common.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/zebra-datepicker/public/css/zebra_datepicker.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
 
+    <script type="text/javascript" src="/material-design/material.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/chartJS/Chart.js"></script>
+    <script type="text/javascript" src="/zebra-datepicker/public/js/zebra_datepicker.js"></script>
 </head>
 <body>
 <header>
@@ -20,8 +23,8 @@
         <nav id="headerNav">
             <a href="#">首页</a>
             <a href="/activity">竞赛</a>
-            <a href="/health">健康</a>
-            <a class="active" href="/moments">好友圈</a>
+            <a class="active" href="/health">健康</a>
+            <a class="" href="/moments">好友圈</a>
             <button id="personal"
                     class="mdl-button mdl-js-button mdl-button--icon"
                     style="margin-left:auto;">
@@ -45,7 +48,9 @@
     </nav>
     <div class="mainContent">
         <h1>睡眠情况</h1>
-        <input id="datePicker" name="datePicker" type="date"/>
+        <div id="datePicker">
+            <input type="text" id="datePick" name="datePicker"  />
+        </div>
         <ul id="sleepStatics">
             <li>
                 <p class="sportsNum">
@@ -143,10 +148,20 @@
     };
 
     window.onload = function() {
+
+        //init datepicker
+        $('#datePick').Zebra_DatePicker({direction: -1});
+        var today = new Date();
+        var month = today.getMonth()+1;
+        $('#datePick').val(today.getFullYear()+'-'+month+'-'+today.getDate());
+        $('.Zebra_DatePicker').on('click',function(e){
+            var picked = (new Date($('.dp_caption').html()+" "+e.target.innerText)    );
+            var pickedM = picked.getMonth()+1;
+            console.log(picked.getFullYear()+'-'+pickedM+'-'+picked.getDate());
+        });
+
+        //init chart
         var ctx = document.getElementById("myChart").getContext("2d");
-//        var myNewChart = new Chart(ctx).Line(data);
-        console.log(data);
-        console.log(document.getElementById("myChart").getContext("2d"));
         var chartDisplay = new Chart(ctx, {
             type: "line",
             data: data,

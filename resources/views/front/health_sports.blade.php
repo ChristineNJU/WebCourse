@@ -6,9 +6,12 @@
 
     <script type="text/javascript" src="/material-design/material.min.js"></script>
     <script type="text/javascript" src="/chartJS/Chart.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/zebra-datepicker/public/js/zebra_datepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/zebra-datepicker/public/css/zebra_datepicker.css">
 
 </head>
 <body>
@@ -47,7 +50,9 @@
     </nav>
     <div class="mainContent">
         <h1>运动情况</h1>
-        <input id="datePicker" name="datePicker" type="date"/>
+        <div id="datePicker">
+            <input type="text" id="datePick" name="datePicker" readonly="readonly" />
+        </div>
         <ul id="sportsStatics">
             <li>
                 <p class="sportsNum">
@@ -137,10 +142,16 @@
     };
 
     window.onload = function() {
+
+        //init datepicker
+        $('#datePick').Zebra_DatePicker({direction: -1});
+        var today = new Date();
+        var month = today.getMonth()+1;
+        $('#datePick').val(today.getFullYear()+'-'+month+'-'+today.getDate());
+
+
+        //init chart
         var ctx = document.getElementById("myChart").getContext("2d");
-//        var myNewChart = new Chart(ctx).Line(data);
-        console.log(data);
-        console.log(document.getElementById("myChart").getContext("2d"));
         var chartDisplay = new Chart(ctx, {
             type: "line",
             data: data,

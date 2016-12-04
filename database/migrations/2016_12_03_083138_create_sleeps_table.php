@@ -20,8 +20,8 @@ class CreateSleepsTable extends Migration
             $table->dateTime('end');
             $table->string('timeTotal');
             $table->string('timeValid');
+            $table->string('values');
             $table->float('rate');
-//            $table->timestamps();
         });
     }
 
