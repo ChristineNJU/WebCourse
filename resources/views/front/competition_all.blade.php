@@ -43,13 +43,10 @@
             <h2>Christine张</h2>
             <ul id="momentInfo">
                 <li>
-                    <p class="momentInfoNum">32</p>
+                    <p class="momentInfoNum">{{$count}}</p>
                     <p class="momentInfoName">参与竞赛</p>
                 </li>
-                <li>
-                    <p class="momentInfoNum">85%</p>
-                    <p class="momentInfoName">胜率</p>
-                </li>
+
             </ul>
         </div>
         <nav id="mainNav">
@@ -60,42 +57,29 @@
     </div>
 
     <div>
-        <nav class="navSecond">
-            <a href="/activity">所有竞赛</a>
-            <a href="/activity">我发起的</a>
-        </nav>
+        {{--<nav class="navSecond">--}}
+            {{--<a href="/activity">所有竞赛</a>--}}
+            {{--<a href="/activity">我发起的</a>--}}
+        {{--</nav>--}}
         <div>
-            <a href="activity/detail/1">
+            @foreach($comps as $comp)
+            <a href="activity/detail/{{$comp->id}}">
                 <div class="competition mainContent mdl-js-button mdl-js-ripple-effect">
-                    <img class="competitionIcon" src="/img/icon_flag.png"/>
+                    <img class="competitionIcon"
+                         src="@if($comp->peopleAll != -1)/img/icon_flag.png @else /img/icon_pk.png @endif"/>
                     <div class="competitionBrief">
                         <div>
-                            <h2>一天跑步时长比拼</h2>
-                            <h3>2016-10-31 00:00 ~ 2016-10-31 23:59</h3>
+                            <h2>{{$comp->title}}</h2>
+                            <h3>{{$comp->begin}} ~ {{$comp->end}}</h3>
                         </div>
                     </div>
                     <div class="competitionPeople">
-                        <h4>3/4</h4>
+                        <h4>{{$comp->peopleHave}}@if($comp->peopleAll != -1)/{{$comp->peopleAll}}@endif</h4>
                         <h5>参与人数</h5>
                     </div>
                 </div>
             </a>
-
-            <a href="activity/detail/1">
-                <div class="competition mainContent">
-                    <img class="competitionIcon" src="/img/icon_pk.png"/>
-                    <div class="competitionBrief">
-                        <div>
-                            <h2>一个比赛</h2>
-                            <h3>2016-10-31 00:00 ~ 2016-10-31 23:59</h3>
-                        </div>
-                    </div>
-                    <div class="competitionPeople">
-                        <h4>11</h4>
-                        <h5>参与人数</h5>
-                    </div>
-                </div>
-            </a>
+            @endforeach
         </div>
     </div>
 </div>

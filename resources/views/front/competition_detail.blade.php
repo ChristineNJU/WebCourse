@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>单个竞赛</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script type="text/javascript" src="/material-design/material.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
@@ -39,16 +40,12 @@
 <div class="main">
     <div>
         <div id="userCardMoment">
-            <img id="userIcon" src="../img/icon1.jpg"/>
+            <img id="userIcon" src="/img/icon1.jpg"/>
             <h2>Christine张</h2>
             <ul id="momentInfo">
                 <li>
-                    <p class="momentInfoNum">32</p>
+                    <p class="momentInfoNum">{{$count}}</p>
                     <p class="momentInfoName">参与竞赛</p>
-                </li>
-                <li>
-                    <p class="momentInfoNum">85%</p>
-                    <p class="momentInfoName">胜率</p>
                 </li>
             </ul>
         </div>
@@ -71,35 +68,40 @@
                 <img class="competitionIcon" src="/img/icon_flag.png"/>
                 <div class="competitionBrief">
                     <div>
-                        <h2>一天跑步时长比拼</h2>
-                        <h3>2016-10-31 00:00 ~ 2016-10-31 23:59</h3>
+                        <h2>{{$comp->title}}</h2>
+                        <h3>{{$comp->begin}} ~ {{$comp->end}}</h3>
                     </div>
                 </div>
                 <div class="competitionPeople">
-                    <h4>3/4</h4>
+                    <h4>{{$comp->peopleHave}}@if($comp->peopleAll != -1)/{{$comp->peopleAll}}@endif</h4>
                     <h5>参与人数</h5>
                 </div>
             </div>
             <div id="competitionContent">
-                <button id="participate" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                <p>
+                    {{$comp->content}}
+                </p>
+                @if($canP == 1)
+                <button id="participate" onClick=participate({{$comp->id}}) class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     我要参加
                 </button>
+                @endif
 
                 <h1>发起人 · 发起时间</h1>
                 <div class="creatorInfo">
-                    <img class="creator" src="/img/icon1.jpg"/>
+                    <img class="creator" src="/img/{{$comp->avatar}}.jpg"/>
                     <div>
-                        <p class="name">ChristineZ</p>
-                        <p class="time">2016-10-29</p>
+                        <p class="name">{{$comp->nickname}}</p>
+                        <p class="time">{{$comp->created_at}}</p>
                     </div>
                 </div>
 
 
                 <h1>参与人员</h1>
                 <div class="participates">
-                    <img class="participate" src="/img/icon1.jpg"/>
-                    <img class="participate" src="/img/icon1.jpg"/>
-                    <img class="participate" src="/img/icon1.jpg"/>
+                    @foreach($ps as $p)
+                    <img class="participate" src="/img/{{$p->avatar}}.jpg"/>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -110,5 +112,32 @@
 <footer>
 
 </footer>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    window.onload = function(){
+
+    }
+
+    function participate(id){
+        $.ajax({
+            type:'post',
+            url:'/activity/participate',
+            dateType:'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data:{
+                id:id
+            },
+            success:function(data){
+                console.log(data);
+                location.reload();
+            },
+            fail:function(){
+                console.log("fail");
+            }
+        })
+    }
+</script>
 </body>
 </html>

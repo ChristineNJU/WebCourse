@@ -38,8 +38,10 @@ Route::post('admin/delete/{id}','admin\AdminController@delete');
 Route::group(['prefix' => 'activity', 'namespace' => 'Activity'], function()
 {
     Route::get('/', 'ActivityController@index');
+    Route::post('/participate', 'ActivityController@participate');
     Route::get('/detail/{id}', 'ActivityController@detail');
     Route::get('/new', 'ActivityController@newActivity');
+    Route::post('/create', 'ActivityController@createActivity');
     Route::get('/edit/{id}', 'ActivityController@editActivity');
 });
 
