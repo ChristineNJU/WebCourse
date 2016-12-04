@@ -59,6 +59,7 @@
                 <td>
                     <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
                         <i class="material-icons">delete</i>
+                        <i class="material-icons">edit</i>
                     </button>
 
                 </td>
@@ -71,6 +72,7 @@
                 <td>
                     <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
                         <i class="material-icons">delete</i>
+                        <i class="material-icons">edit</i>
                     </button>
 
                 </td>

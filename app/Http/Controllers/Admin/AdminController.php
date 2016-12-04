@@ -9,4 +9,8 @@ class AdminController extends Controller{
     public function index(){
         return view('back.admin');
     }
+
+    public function edit(){
+        return view('back.adminUpdate');
+    }
 }

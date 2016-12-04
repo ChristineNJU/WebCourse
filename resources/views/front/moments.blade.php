@@ -42,7 +42,7 @@
 
 <div class="main">
     <div id="userCardMoment">
-        <img id="userIcon" src="../img/icon1.jpg"/>
+        <img id="userIcon" src="/img/icon1.jpg"/>
         <h2>Christine张</h2>
         <ul id="momentInfo">
             <li>
@@ -70,9 +70,9 @@
         </div>
         <div class="moment mainContent">
             <div class="momentsInfo">
-                <img src="../img/icon1.jpg"/>
+                <img src="/img/icon1.jpg"/>
                 <div>
-                    <h2>Christine张中文字体为什么会变形？</h2>
+                    <h2>Christine张</h2>
                     <h3>2016-10-31 10:00</h3>
                 </div>
             </div>
@@ -84,16 +84,14 @@
         </div>
         <div class="moment mainContent">
             <div class="momentsInfo">
-                <img src="../img/icon1.jpg"/>
+                <img src="/img/icon2.jpg"/>
                 <div>
-                    <h2>Christine张中文字体为什么会变形？</h2>
-                    <h3>2016-10-31 10:00</h3>
+                    <h2>Jack</h2>
+                    <h3>2016-09-20 10:00</h3>
                 </div>
             </div>
             <section>
-                跑了个半马
-                跑了个半马运动好累啊可是还要微笑着面对hhhhhhhh就为
-                了在朋友圈装一个发个照片晒个马甲线回去就狂吃狂吃
+                健了个身
             </section>
         </div>
     </div>

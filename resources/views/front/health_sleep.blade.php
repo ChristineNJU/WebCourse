@@ -167,6 +167,7 @@
                 }
                 var date = picked.getFullYear()+'-'+pickedM+'-'+pickedD;
 //                console.log(picked.getFullYear()+'-'+pickedM+'-'+pickedD);
+                update(date);
             }
         });
 
@@ -191,7 +192,7 @@
         });
     }
 
-    functon update(date){
+    function update(date){
         $.ajax({
             type:'get',
             url:'/health/sleep/'+date,

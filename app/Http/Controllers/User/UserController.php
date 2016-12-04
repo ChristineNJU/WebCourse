@@ -14,6 +14,6 @@ class UserController extends Controller
     }
 
     public function revisePW(){
-        return view('front.revisePW');
+        return view('front.personalInfo_revisePW');
     }
 }
