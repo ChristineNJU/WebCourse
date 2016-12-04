@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>朋友圈</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script type="text/javascript" src="/material-design/material.min.js"></script>
+    <script type="text/javascript" src="/material-design/jquery-2.2.3.js"></script>
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    {{--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">--}}
+    <sctipt type="text/javascript" src="/js/jquery-2.2.3.js"></sctipt>
+    <sctipt type="text/javascript" src="/js/moments.js"></sctipt>
 
 </head>
 <body>
@@ -54,12 +58,12 @@
     <div>
         <div id="momentNew" class="mainContent">
             <div class="mdl-textfield mdl-js-textfield">
-                <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
+                <textarea id="newPost" class="mdl-textfield__input" type="text" rows= "3" ></textarea>
                 <label class="mdl-textfield__label" for="sample5">记录一下最近的运动状态吧！</label>
             </div>
             <div class="momentNewTools">
-                <label>剩余<span>11</span>字</label>
-                <button class="mdl-button mdl-js-button mdl-button--accent">
+                <label>剩余<span id="word_left">140</span>字</label>
+                <button id="submit" class="mdl-button mdl-js-button mdl-button--accent">
                     SUBMIT
                 </button>
             </div>
@@ -98,5 +102,44 @@
 <footer>
 
 </footer>
+
+<script>
+    window.onload = function(){
+        $("#newPost").on("input",function(){
+            var content = this.value;
+            var len = content.length;
+            $('#word_left').html(140-len > 0? 140-len:0);
+            if(len > 140){
+                this.value = content.substring(0,140);
+            }
+        });
+        $("#submit").on("click",function(){
+            var content = $('#newPost').val();
+            if(content == null || content == ''){
+                return ;
+            }
+            $.ajax({
+                type:'post',
+                url:'/moments/new',
+                dataType:'json',
+                beforeSend:function(){
+
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data:{
+                    content:content,
+                },
+                success:function(data){
+                    console.log(data.status);
+                },
+                fail:function(){
+                    console.log("fail");
+                }
+            });
+        });
+    }
+</script>
 </body>
 </html>

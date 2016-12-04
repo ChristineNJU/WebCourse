@@ -37,6 +37,7 @@ Route::group(['prefix' => 'activity', 'namespace' => 'Activity'], function()
 {
     Route::get('/', 'ActivityController@index');
     Route::get('/detail/{id}', 'ActivityController@detail');
+    Route::get('/new', 'ActivityController@newActivity');
 });
 
 Route::group(['prefix' => 'health', 'namespace' => 'Health'], function()
@@ -47,6 +48,8 @@ Route::group(['prefix' => 'health', 'namespace' => 'Health'], function()
 });
 
 Route::get('moments','PagesController@moments');
+Route::post('moments/new','PagesController@newMoment');
+Route::get('moments/get','PagesController@que');
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function()
 {
@@ -55,3 +58,6 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function()
     Route::get('/friends', 'FriendController@index');
     Route::get('/friends/apply', 'FriendController@applies');
 });
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

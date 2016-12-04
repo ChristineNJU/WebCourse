@@ -17,4 +17,9 @@ class ActivityController extends Controller
 //        echo($id);
         return view('front.competition_detail');
     }
+
+    public function newActivity(){
+//        echo($id);
+        return view('front.competition_new');
+    }
 }

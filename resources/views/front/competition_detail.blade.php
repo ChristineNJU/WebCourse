@@ -37,19 +37,26 @@
 </header>
 
 <div class="main">
-    <div id="userCardMoment">
-        <img id="userIcon" src="/img/icon1.jpg"/>
-        <h2>Christine张</h2>
-        <ul id="momentInfo">
-            <li>
-                <p class="momentInfoNum">32</p>
-                <p class="momentInfoName">参与竞赛</p>
-            </li>
-            <li>
-                <p class="momentInfoNum">85%</p>
-                <p class="momentInfoName">胜率</p>
-            </li>
-        </ul>
+    <div>
+        <div id="userCardMoment">
+            <img id="userIcon" src="../img/icon1.jpg"/>
+            <h2>Christine张</h2>
+            <ul id="momentInfo">
+                <li>
+                    <p class="momentInfoNum">32</p>
+                    <p class="momentInfoName">参与竞赛</p>
+                </li>
+                <li>
+                    <p class="momentInfoNum">85%</p>
+                    <p class="momentInfoName">胜率</p>
+                </li>
+            </ul>
+        </div>
+        <nav id="mainNav">
+            <a href="/activity/new">
+                新建竞赛
+            </a>
+        </nav>
     </div>
     <div style="width:690px;">
         <nav class="navSecond">

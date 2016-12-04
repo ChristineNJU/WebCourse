@@ -37,27 +37,35 @@
 </header>
 
 <div class="main">
-    <div id="userCardMoment">
-        <img id="userIcon" src="../img/icon1.jpg"/>
-        <h2>Christine张</h2>
-        <ul id="momentInfo">
-            <li>
-                <p class="momentInfoNum">32</p>
-                <p class="momentInfoName">参与竞赛</p>
-            </li>
-            <li>
-                <p class="momentInfoNum">85%</p>
-                <p class="momentInfoName">胜率</p>
-            </li>
-        </ul>
+    <div>
+        <div id="userCardMoment">
+            <img id="userIcon" src="../img/icon1.jpg"/>
+            <h2>Christine张</h2>
+            <ul id="momentInfo">
+                <li>
+                    <p class="momentInfoNum">32</p>
+                    <p class="momentInfoName">参与竞赛</p>
+                </li>
+                <li>
+                    <p class="momentInfoNum">85%</p>
+                    <p class="momentInfoName">胜率</p>
+                </li>
+            </ul>
+        </div>
+        <nav id="mainNav">
+            <a href="/activity/new">
+                新建竞赛
+            </a>
+        </nav>
     </div>
+
     <div>
         <nav class="navSecond">
             <a href="/activity">所有竞赛</a>
             <a href="/activity">我参与的</a>
         </nav>
         <div>
-            <a href="activity/detail">
+            <a href="activity/detail/1">
                 <div class="competition mainContent mdl-js-button mdl-js-ripple-effect">
                     <img class="competitionIcon" src="/img/icon_flag.png"/>
                     <div class="competitionBrief">
@@ -73,7 +81,7 @@
                 </div>
             </a>
 
-            <a href="activity/detail">
+            <a href="activity/detail/1">
                 <div class="competition mainContent">
                     <img class="competitionIcon" src="/img/icon_pk.png"/>
                     <div class="competitionBrief">
