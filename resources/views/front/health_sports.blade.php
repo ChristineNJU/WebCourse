@@ -10,7 +10,6 @@
     <script type="text/javascript" src="/zebra-datepicker/public/js/zebra_datepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/zebra-datepicker/public/css/zebra_datepicker.css">
 
 </head>

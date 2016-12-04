@@ -3,14 +3,49 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use DB;
 use Redirect, Input;
 
 class AdminController extends Controller{
     public function index(){
-        return view('back.admin');
+        $res = DB::select('select * from competitions order by created_at DESC');
+
+        return view('back.admin')
+            ->with('comps',$res)
+            ;
     }
 
-    public function edit(){
-        return view('back.adminUpdate');
+    public function edit($id){
+
+        $res = DB::select('SELECT * from competitions where id=?',[$id]);
+        return view('back.adminUpdate')
+            ->with('comp',$res[0])
+            ;
+    }
+    public function deleteA(){
+
+        $res = DB::select('SELECT * from competitions where id=?',[$id]);
+        return view('back.adminUpdate')
+            ->with('comp',$res[0])
+            ;
+    }
+    public function updateA(){
+
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $peopleAll = $_POST['peopleAll'];
+        $begin = $_POST['begin'];
+        $end = $_POST['end'];
+        $id = $_POST['id'];
+        $date = date('Y-m-d H:i:s',time());
+
+        DB::update('update competitions set title=?,content=?,peopleAll=?,begin=?,end=?
+                where id=?',[$title,$content,$peopleAll,$begin,$end,$id]);
+
+        $response = array(
+            'status' => 'success',
+            'received' => $id
+        );
+        return \Response::json($response);
     }
 }

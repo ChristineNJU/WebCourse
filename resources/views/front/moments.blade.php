@@ -9,7 +9,6 @@
     <script type="text/javascript" src="/material-design/jquery-2.2.3.js"></script>
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
-    {{--<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">--}}
     <sctipt type="text/javascript" src="/js/jquery-2.2.3.js"></sctipt>
     <sctipt type="text/javascript" src="/js/moments.js"></sctipt>
 

@@ -33,7 +33,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => 'auth'
 
 Route::get('admin','admin\AdminController@index');
 Route::get('admin/edit/{id}','admin\AdminController@edit');
-Route::post('admin/delete/{id}','admin\AdminController@delete');
+Route::post('admin/delete','admin\AdminController@deleteA');
+Route::post('admin/update','admin\AdminController@updateA');
 
 Route::group(['prefix' => 'activity', 'namespace' => 'Activity'], function()
 {
