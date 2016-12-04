@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>个人信息</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script type="text/javascript" src="/material-design/material.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/material-design/material.min.css">
@@ -43,7 +44,7 @@
                 <img class="friendIcon" src="../img/icon1.jpg"/>
                 <div id="briefInfo">
                     <h2>自己</h2>
-                    <h3>LV.3</h3>
+                    {{--<h3>LV.3</h3>--}}
                     <div id="exp">
                         <div id="exp_gain"></div>
                     </div>
@@ -53,21 +54,21 @@
             <div class="userCardDown">
                 <ul id="momentInfo">
                     <li>
-                        <p class="momentInfoNum">32</p>
+                        <p class="momentInfoNum">{{$momentsC}}</p>
                         <p class="momentInfoName">动态</p>
                     </li>
                     <li>
-                        <p class="momentInfoNum">8</p>
+                        <p class="momentInfoNum">{{$friendC}}</p>
                         <p class="momentInfoName">好友</p>
                     </li>
                     <li>
                         <p class="momentInfoNum">32</p>
                         <p class="momentInfoName">参与竞赛</p>
                     </li>
-                    <li>
-                        <p class="momentInfoNum">85%</p>
-                        <p class="momentInfoName">胜率</p>
-                    </li>
+                    {{--<li>--}}
+                        {{--<p class="momentInfoNum">85%</p>--}}
+                        {{--<p class="momentInfoName">胜率</p>--}}
+                    {{--</li>--}}
                 </ul>
             </div>
 
@@ -117,12 +118,12 @@
             <div class="formItemSelf">
                 <h2>性别</h2>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1"
+                    <input type="radio" id="option-1" class="mdl-radio__button" name="gender" value="男"
                            @if ($user->gender == '男') checked @endif>
                     <span class="mdl-radio__label">男</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                    <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2"
+                    <input type="radio" id="option-2" class="mdl-radio__button" name="gender" value="女"
                            @if ($user->gender == '女') checked @endif>
                     <span class="mdl-radio__label">女</span>
                 </label>
@@ -151,17 +152,27 @@
     window.onload = function(){
         $('#submit').on('click',function(e){
             e.preventDefault();
+            console.log($("input[name='gender']:checked").val());
             $.ajax({
-                type:'post'
+                type:'post',
+                url:'/user/reviseInfo',
                 beforeSend:function(){
-//                    $("#submit").disable();
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 data:{
-                    nickname:content,
+                    nickname:$('#nickname').val(),
+                    address:$('#address').val(),
+                    gender:$("input[name='gender']:checked").val(),
                 },
+                success:function(data){
+                    console.log(data);
+                    location.reload();
+                },
+                fail:function(){
+                    location.reload();
+                }
             })
         });
     }

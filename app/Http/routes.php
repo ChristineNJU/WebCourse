@@ -60,6 +60,7 @@ Route::get('moments/get','PagesController@que');
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function()
 {
     Route::get('/', 'UserController@index');
+    Route::post('/reviseInfo', 'UserController@reviseInfo');
     Route::get('/revisePW', 'UserController@revisePW');
     Route::get('/friends', 'FriendController@index');
     Route::get('/friends/apply', 'FriendController@applies');

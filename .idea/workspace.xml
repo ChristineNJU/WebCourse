@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0aaee48d-a11b-4eec-87e0-6863905a37f0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/databases/sports.db" afterPath="$PROJECT_DIR$/storage/databases/sports.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/User/FriendController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/FriendController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front/personalFriends.blade.php" afterPath="$PROJECT_DIR$/resources/views/front/personalFriends.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front/personalFriends_apply.blade.php" afterPath="$PROJECT_DIR$/resources/views/front/personalFriends_apply.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/front/personalInfo.blade.php" afterPath="$PROJECT_DIR$/resources/views/front/personalInfo.blade.php" />
     </list>
     <ignored path="sportsman.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,14 +26,14 @@
     <favorites_list name="sportsman" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.41755006">
+    <splitter split-orientation="horizontal" split-proportion="0.43287995">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-25.423077">
-                  <caret line="67" column="63" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
+                <state vertical-scroll-proportion="-21.576923">
+                  <caret line="62" column="28" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="28" />
                   <folding>
                     <element signature="e#7#392#0#PHP" expanded="true" />
                   </folding>
@@ -43,34 +41,16 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="personalFriends.blade.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/front/personalFriends.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="13.807693">
-                  <caret line="84" column="107" selection-start-line="84" selection-start-column="107" selection-end-line="84" selection-end-column="107" />
-                  <folding>
-                    <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="personalFriends_apply.blade.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/resources/views/front/personalFriends_apply.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.12009513">
-                  <caret line="132" column="47" selection-start-line="132" selection-start-column="47" selection-end-line="132" selection-end-column="47" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="personalInfo.blade.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="personalInfo.blade.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/resources/views/front/personalInfo.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-30.038462">
-                  <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-                  <folding />
+                <state vertical-scroll-proportion="0.7621879">
+                  <caret line="67" column="20" selection-start-line="67" selection-start-column="24" selection-end-line="70" selection-end-column="29" />
+                  <folding>
+                    <marker date="1480878621993" expanded="true" signature="2495:2659" placeholder="..." />
+                    <marker date="1480878621993" expanded="true" signature="5728:6564" placeholder="{...}" />
+                    <marker date="1480878621993" expanded="true" signature="5847:6553" placeholder="{&quot;type&quot;: 'post'...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -79,6 +59,33 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+          <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/UserController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.47681332">
+                  <caret line="28" column="28" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="28" />
+                  <folding>
+                    <element signature="e#45#73#0#PHP" expanded="true" />
+                    <marker date="1480878600125" expanded="true" signature="1161:1279" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="personalInfo.blade.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/resources/views/front/personalInfo.blade.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-21.807692">
+                  <caret line="125" column="102" selection-start-line="125" selection-start-column="102" selection-end-line="125" selection-end-column="102" />
+                  <folding>
+                    <marker date="1480878621993" expanded="true" signature="2495:2659" placeholder="..." />
+                    <marker date="1480878621993" expanded="true" signature="5728:6564" placeholder="{...}" />
+                    <marker date="1480878621993" expanded="true" signature="5847:6553" placeholder="{&quot;type&quot;: 'post'...}" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="moments.blade.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/resources/views/front/moments.blade.php">
               <provider selected="true" editor-type-id="text-editor">
@@ -95,28 +102,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PagesController.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PagesController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-13.115385">
-                  <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#6#85#0#PHP" expanded="true" />
-                    <element signature="e#119#141#0#PHP" expanded="true" />
-                    <marker date="1480874433598" expanded="true" signature="358:1758" placeholder="..." />
-                    <marker date="1480874433598" expanded="true" signature="495:1166" placeholder="..." />
-                    <marker date="1480874433598" expanded="true" signature="561:975" placeholder="..." />
-                    <marker date="1480874433598" expanded="true" signature="1110:1120" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="FriendController.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="FriendController.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/FriendController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.35790727">
-                  <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
+                <state vertical-scroll-proportion="-13.115385">
+                  <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="65" selection-end-column="42" />
                   <folding>
                     <element signature="e#45#73#0#PHP" expanded="true" />
                   </folding>
@@ -176,9 +166,7 @@
         <option value="$PROJECT_DIR$/app/moments.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Health/HealthController.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/front/moments.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/front/personalInfo.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front/competition_all.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front/competition_detail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front/competition_edit.blade.php" />
@@ -188,10 +176,12 @@
         <option value="$PROJECT_DIR$/resources/views/front/health_total.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/front/personalInfo_revisePw.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/front/personalFriends.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/User/FriendController.php" />
         <option value="$PROJECT_DIR$/resources/views/front/personalFriends_apply.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" />
+        <option value="$PROJECT_DIR$/resources/views/front/personalInfo.blade.php" />
       </list>
     </option>
   </component>
@@ -661,11 +651,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1060" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09100642" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09475375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1050,12 +1040,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/UserController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PagesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28537455">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        <state vertical-scroll-proportion="-13.115385">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#85#0#PHP" expanded="true" />
+            <element signature="e#119#141#0#PHP" expanded="true" />
+            <marker date="1480874433598" expanded="true" signature="358:1758" placeholder="..." />
+            <marker date="1480874433598" expanded="true" signature="495:1166" placeholder="..." />
+            <marker date="1480874433598" expanded="true" signature="561:975" placeholder="..." />
+            <marker date="1480874433598" expanded="true" signature="1110:1120" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/front/personalFriends_apply.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19143876">
+          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/front/personalFriends.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.42687276">
+          <caret line="84" column="107" selection-start-line="84" selection-start-column="107" selection-end-line="84" selection-end-column="107" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/FriendController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.115385">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="65" selection-end-column="42" />
           <folding>
             <element signature="e#45#73#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-79.59977">
+          <caret line="9339" column="20" selection-start-line="9339" selection-start-column="20" selection-end-line="9339" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.576923">
+          <caret line="62" column="28" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="28" />
+          <folding>
+            <element signature="e#7#392#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1074,72 +1115,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front/personalInfo.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.038462">
-          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PagesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.115385">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#85#0#PHP" expanded="true" />
-            <element signature="e#119#141#0#PHP" expanded="true" />
-            <marker date="1480874433598" expanded="true" signature="358:1758" placeholder="..." />
-            <marker date="1480874433598" expanded="true" signature="495:1166" placeholder="..." />
-            <marker date="1480874433598" expanded="true" signature="561:975" placeholder="..." />
-            <marker date="1480874433598" expanded="true" signature="1110:1120" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9339" column="20" selection-start-line="9339" selection-start-column="20" selection-end-line="9339" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front/personalFriends.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.807693">
-          <caret line="84" column="107" selection-start-line="84" selection-start-column="107" selection-end-line="84" selection-end-column="107" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.423077">
-          <caret line="67" column="63" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
-          <folding>
-            <element signature="e#7#392#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/FriendController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35790727">
-          <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.47681332">
+          <caret line="28" column="28" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="28" />
           <folding>
             <element signature="e#45#73#0#PHP" expanded="true" />
+            <marker date="1480878600125" expanded="true" signature="1161:1279" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/front/personalFriends_apply.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/front/personalInfo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12009513">
-          <caret line="132" column="47" selection-start-line="132" selection-start-column="47" selection-end-line="132" selection-end-column="47" />
-          <folding />
+        <state vertical-scroll-proportion="0.7621879">
+          <caret line="67" column="20" selection-start-line="67" selection-start-column="24" selection-end-line="70" selection-end-column="29" />
+          <folding>
+            <marker date="1480878621993" expanded="true" signature="2495:2659" placeholder="..." />
+            <marker date="1480878621993" expanded="true" signature="5728:6564" placeholder="{...}" />
+            <marker date="1480878621993" expanded="true" signature="5847:6553" placeholder="{&quot;type&quot;: 'post'...}" />
+          </folding>
         </state>
       </provider>
     </entry>
