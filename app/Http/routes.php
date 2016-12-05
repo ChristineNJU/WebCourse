@@ -38,7 +38,7 @@ Route::post('admin/update','admin\AdminController@updateA');
 
 Route::group(['prefix' => 'activity', 'namespace' => 'Activity'], function()
 {
-    Route::get('/', 'ActivityController@index');
+    Route::get('/{type}', 'ActivityController@index');
     Route::post('/participate', 'ActivityController@participate');
     Route::get('/detail/{id}', 'ActivityController@detail');
     Route::get('/new', 'ActivityController@newActivity');

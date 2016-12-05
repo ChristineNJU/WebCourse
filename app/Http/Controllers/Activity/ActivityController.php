@@ -10,19 +10,22 @@ use Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Activity\GetActivity;
+
 class ActivityController extends Controller
 {
-    public function index(){
-        $userId = Auth::user()['id'];
+    public function index($type){
+//        $userId = Auth::user()['id'];
+//
+//        $res = DB::select('select * from competitions order by created_at DESC');
+//        $count = DB::table('competition_p_ts')->where('userid',$userId)->count();
 
-        $res = DB::select('select * from competitions order by created_at DESC');
-        $count = DB::table('competition_p_ts')->where('userid',$userId)->count();
-
-
-        return view('front.competition_all')
-            ->with('comps',$res)
-            ->with('count',$count)
-            ;
+        $test=GetActivity::get($type);
+        return $test;
+//        return view('front.competition_all')
+//            ->with('comps',$res)
+//            ->with('count',$count)
+//            ;
     }
 
     public function detail($id){

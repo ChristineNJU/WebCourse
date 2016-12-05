@@ -58,10 +58,10 @@
     </div>
 
     <div>
-        {{--<nav class="navSecond">--}}
-            {{--<a href="/activity">所有竞赛</a>--}}
-            {{--<a href="/activity">我发起的</a>--}}
-        {{--</nav>--}}
+        <nav class="navSecond">
+            <a href="/activity/all">所有竞赛</a>
+            <a href="/activity/self">我发起的</a>
+        </nav>
         <div>
             @foreach($comps as $comp)
             <a href="activity/detail/{{$comp->id}}">
