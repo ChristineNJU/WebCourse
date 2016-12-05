@@ -50,7 +50,7 @@
                 <p class="momentInfoName">动态</p>
             </li>
             <li>
-                <p class="momentInfoNum">8</p>
+                <p class="momentInfoNum">{{$friendC}}</p>
                 <p class="momentInfoName">好友</p>
             </li>
         </ul>

@@ -38,9 +38,11 @@ class PagesController extends Controller {
                         ORDER BY moments.updated_at DESC ;',[$userId,$userId]);
 
         $count = DB::table('moments')->where('userid', $userId)->count();
+        $friendCount = DB::table('friends')->where('applied',$userId)->where('status',0)->count();
 
         return view('front.moments')
             ->with('moments',$res)
+            ->with('friendC',$friendCount)
             ->with('count',$count);
     }
 

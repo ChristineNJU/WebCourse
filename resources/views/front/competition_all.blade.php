@@ -64,7 +64,7 @@
         </nav>
         <div>
             @foreach($comps as $comp)
-            <a href="activity/detail/{{$comp->id}}">
+            <a href="/activity/detail/{{$comp->id}}">
                 <div class="competition mainContent mdl-js-button mdl-js-ripple-effect">
                     {{--<img class="competitionIcon"--}}
                          {{--src="@if($comp->peopleAll != -1)/img/icon_flag.png @else /img/icon_pk.png @endif"/>--}}

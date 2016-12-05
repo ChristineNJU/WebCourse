@@ -57,10 +57,7 @@
     </div>
     <div style="width:690px;">
         <nav class="navSecond">
-            <a href="/activity"> <- 返回全部竞赛</a>
-            <!--<button id="participate2" class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-js-ripple-effect mdl-button&#45;&#45;accent">-->
-                <!--我要参加-->
-            <!--</button>-->
+            <a href="/activity/all"> <- 返回全部竞赛</a>
         </nav>
 
         <div id="competitionDetail" class="mainContent">
@@ -78,9 +75,14 @@
                 </div>
             </div>
             <div id="competitionContent">
+                <p style="font-size:12px;color:black">
+                    {{$comp->content}}
+                </p>
                 <p>
                     {{$comp->content}}
                 </p>
+
+
                 @if($canP == 1)
                 <button id="participate" onClick=participate({{$comp->id}}) class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     我要参加
