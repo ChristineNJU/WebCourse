@@ -533,10 +533,10 @@ div#signIn_bg {
         color: #96a04d; }
     div#signIn_bg div#signIn form button {
       width: 100%; }
-    div#signIn_bg div#signIn form button#login {
+    div#signIn_bg div#signIn form #login {
       margin-top: 30px;
       background-color: #fad957; }
-    div#signIn_bg div#signIn form button#signup {
+    div#signIn_bg div#signIn form #signup {
       margin-top: 10px;
       background-color: #c5cd8e; }
 

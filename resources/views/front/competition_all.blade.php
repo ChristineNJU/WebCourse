@@ -31,7 +31,7 @@
                  for="personal">
                 <a href="/user" class="mdl-menu__item">个人资料</a>
                 <a href="/user/friends" class="mdl-menu__item">好友管理</a>
-                <a class="mdl-menu__item">登出</a>
+                <a href="/logout" class="mdl-menu__item">登出</a>
             </div>
         </nav>
     </div>

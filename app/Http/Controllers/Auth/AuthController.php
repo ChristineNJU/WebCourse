@@ -22,6 +22,8 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    protected $loginView = 'front.login';
+    protected $registerView = 'front.register';
 
     /**
      * Where to redirect users after login / registration.
