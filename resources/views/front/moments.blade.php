@@ -22,7 +22,7 @@
         </div>
         <nav id="headerNav">
             <a href="#">首页</a>
-            <a class="" href="/activity">竞赛</a>
+            <a class="" href="/activity/all">竞赛</a>
             <a href="/health">健康</a>
             <a class="active" href="/moments">好友圈</a>
             <button id="personal"
@@ -34,7 +34,7 @@
                  for="personal">
                 <a href="/user" class="mdl-menu__item">个人资料</a>
                 <a href="/user/friends" class="mdl-menu__item">好友管理</a>
-                <a class="mdl-menu__item">登出</a>
+                <a href="/logout" class="mdl-menu__item">登出</a>
             </div>
         </nav>
     </div>

@@ -19,7 +19,7 @@
         </div>
         <nav id="headerNav">
             <a href="#">首页</a>
-            <a class="active" href="/activity">竞赛</a>
+            <a class="active" href="/activity/all">竞赛</a>
             <a href="/health">健康</a>
             <a href="/moments">好友圈</a>
             <button id="personal"
