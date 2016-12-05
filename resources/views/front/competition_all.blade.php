@@ -66,8 +66,12 @@
             @foreach($comps as $comp)
             <a href="activity/detail/{{$comp->id}}">
                 <div class="competition mainContent mdl-js-button mdl-js-ripple-effect">
-                    <img class="competitionIcon"
-                         src="@if($comp->peopleAll != -1)/img/icon_flag.png @else /img/icon_pk.png @endif"/>
+                    {{--<img class="competitionIcon"--}}
+                         {{--src="@if($comp->peopleAll != -1)/img/icon_flag.png @else /img/icon_pk.png @endif"/>--}}
+
+                    <div class="competitionIconW @if($comp->peopleAll != -1)icon_flag @else icon_pk @endif">
+
+                    </div>
                     <div class="competitionBrief">
                         <div>
                             <h2>{{$comp->title}}</h2>
