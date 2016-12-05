@@ -19,14 +19,15 @@ Route::get('/', 'HomeController@index');
 Route::group(['prefix' => 'admin'], function()
 {
 
+    Route::get('/login', 'Admin\AuthController@getLogin');
+    Route::get('/register', 'Admin\AuthController@getRegister');
+    Route::get('/logout', 'Admin\AuthController@logout');
+    Route::post('/register', 'Admin\AuthController@postRegister');
+
     Route::get('/','Admin\AdminController@index');
     Route::get('/edit/{id}','Admin\AdminController@edit');
     Route::post('/delete','Admin\AdminController@deleteA');
     Route::post('/update','Admin\AdminController@updateA');
-
-    Route::get('/login', 'Admin\AuthController@getLogin');
-    Route::get('/register', 'Admin\AuthController@getRegister');
-    Route::post('/register', 'Admin\AuthController@postRegister');
 });
 
 

@@ -5,8 +5,7 @@ use App\Http\Controllers\Controller;
 
 use DB;
 use Redirect, Input;
-
-
+use Auth;
 
 class AdminController extends Controller{
 
@@ -16,6 +15,9 @@ class AdminController extends Controller{
     }
 
     public function index(){
+//        $admin = Auth::guard('admin')->user();
+//        return $admin->name;
+
         $res = DB::select('select * from competitions order by created_at DESC');
 
         return view('back.admin')
@@ -60,5 +62,10 @@ class AdminController extends Controller{
             'received' => $id
         );
         return \Response::json($response);
+    }
+
+    public function logout(){
+        $admin = Auth::guard('admin')->user();
+        return $admin->name;
     }
 }
