@@ -57,7 +57,7 @@ WHERE friends.applied = ? AND (friends.status = 1 OR friends.status = 2)',[$user
         $user = Auth::user()->id;
         $passive = $_POST['passive'];
 
-        DB::delete('UPDATE friends SET status = 0 WHERE applyer=? AND applied = ?;',[$passive,$user]);
+        DB::update('UPDATE friends SET status = 0 WHERE applyer=? AND applied = ?;',[$passive,$user]);
 
         $response = array(
             'status' => 'success',
@@ -70,7 +70,7 @@ WHERE friends.applied = ? AND (friends.status = 1 OR friends.status = 2)',[$user
     public function disagree(){
         $user = Auth::user()->id;
         $passive = $_POST['passive'];
-        DB::delete('UPDATE friends SET status = 2 WHERE applyer=? AND applied = ?;',[$passive,$user]);
+        DB::update('UPDATE friends SET status = 2 WHERE applyer=? AND applied = ?;',[$passive,$user]);
 
         $response = array(
             'status' => 'success',

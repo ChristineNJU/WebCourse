@@ -29,7 +29,7 @@
             <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                  for="personal">
                 <a href="/admin" class="mdl-menu__item">活动管理</a>
-                <a class="mdl-menu__item">登出</a>
+                <a href="/logout" class="mdl-menu__item">登出</a>
             </div>
         </nav>
     </div>
@@ -78,9 +78,28 @@
 <footer>
 
 </footer>
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 <script>
     function deleteA(id){
         console.log('delete'+id);
+
+        $.ajax({
+            type:'post',
+            url:'admin/delete',
+            dataType:'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data:{
+                id:id,
+            },
+            success:function(){
+                location.reload();
+            },
+            fail:function(){
+                location.reload();
+            }
+        })
     }
 </script>
 </body>

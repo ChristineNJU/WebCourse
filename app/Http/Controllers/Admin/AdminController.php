@@ -32,10 +32,14 @@ class AdminController extends Controller{
     }
     public function deleteA(){
 
-        $res = DB::select('SELECT * from competitions where id=?',[$id]);
-        return view('back.adminUpdate')
-            ->with('comp',$res[0])
-            ;
+        $comid = $_POST['id'];
+
+        DB::delete('delete from competitions where id = ?',[$comid]);
+        $response = array(
+            'status' => 'success',
+            'received' => $comid
+        );
+        return \Response::json($response);
     }
     public function updateA(){
 

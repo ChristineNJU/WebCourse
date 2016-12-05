@@ -25,7 +25,6 @@ Route::group(['prefix' => 'admin'], function()
     Route::post('/update','Admin\AdminController@updateA');
 
     Route::get('/login', 'Admin\AuthController@getLogin');
-    Route::post('/login', 'Admin\AuthController@postLogin');
     Route::get('/register', 'Admin\AuthController@getRegister');
     Route::post('/register', 'Admin\AuthController@postRegister');
 });
