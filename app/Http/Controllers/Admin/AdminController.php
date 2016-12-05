@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use DB;
 use Redirect, Input;
-use Auth;
+//use Auth;
 
 class AdminController extends Controller{
 
@@ -64,8 +64,8 @@ class AdminController extends Controller{
         return \Response::json($response);
     }
 
-    public function logout(){
-        $admin = Auth::guard('admin')->user();
-        return $admin->name;
-    }
+//    public function logout(){
+//        $admin = Auth::guard('admin')->user();
+//        return $admin->name;
+//    }
 }
