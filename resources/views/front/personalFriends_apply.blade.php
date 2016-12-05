@@ -65,10 +65,6 @@
                         <p class="momentInfoNum">32</p>
                         <p class="momentInfoName">参与竞赛</p>
                     </li>
-                    <li>
-                        <p class="momentInfoNum">85%</p>
-                        <p class="momentInfoName">胜率</p>
-                    </li>
                 </ul>
             </div>
 

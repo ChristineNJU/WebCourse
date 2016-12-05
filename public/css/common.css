@@ -488,7 +488,7 @@ div.userCard {
       flex-wrap: wrap;
       flex-direction: row; }
       div.userCard .userCardDown ul li {
-        width: 50%;
+        width: 33%;
         padding: 20px 10px 0 10px;
         box-sizing: border-box; }
         div.userCard .userCardDown ul li p {
@@ -541,3 +541,22 @@ div#signIn_bg {
       background-color: #c5cd8e; }
 
 /*# sourceMappingURL=common.css.map */
+
+@media all and (max-width: 960px){
+  div.main{
+    flex-direction:column;
+    align-items: stretch;
+}
+  nav#mainNav,div.mainContent{
+    width:100%;
+  }
+  div#userCardMoment{
+    width:100%;
+  }
+  div.userCard,nav.navSecond,div#friendsList{
+    width:100%;
+  }
+  .friendCard{
+    width: 48%;
+  }
+}
