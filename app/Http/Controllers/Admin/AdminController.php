@@ -50,9 +50,10 @@ class AdminController extends Controller{
         $end = $_POST['end'];
         $id = $_POST['id'];
         $date = date('Y-m-d H:i:s',time());
+        $tags = $_POST['tags'];
 
-        DB::update('update competitions set title=?,content=?,peopleAll=?,begin=?,end=?
-                where id=?',[$title,$content,$peopleAll,$begin,$end,$id]);
+        DB::update('update competitions set title=?,content=?,peopleAll=?,begin=?,end=?,tags=?
+                where id=?',[$title,$content,$peopleAll,$begin,$end,$tags,$id]);
 
         $response = array(
             'status' => 'success',

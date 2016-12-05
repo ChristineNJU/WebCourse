@@ -36,7 +36,7 @@ Route::group(['prefix' => 'activity', 'namespace' => 'Activity','middleware' => 
     Route::get('/{type}', 'ActivityController@index');
     Route::post('/participate', 'ActivityController@participate');
     Route::get('/detail/{id}', 'ActivityController@detail');
-    Route::get('/new', 'ActivityController@newActivity');
+    Route::get('/new/getNew', 'ActivityController@newActivity');
     Route::post('/create', 'ActivityController@createActivity');
     Route::get('/edit/{id}', 'ActivityController@editActivity');
 });

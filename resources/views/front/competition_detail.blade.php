@@ -50,7 +50,7 @@
             </ul>
         </div>
         <nav id="mainNav">
-            <a href="/activity/new">
+            <a href="/activity/new/getNew">
                 新建竞赛
             </a>
         </nav>
@@ -76,7 +76,7 @@
             </div>
             <div id="competitionContent">
                 <p style="font-size:12px;color:black">
-                    {{$comp->content}}
+                   <span style="color:rgba(0,0,0,0.5);font-size:12px;">标签:</span> {{$comp->tags}}
                 </p>
                 <p>
                     {{$comp->content}}

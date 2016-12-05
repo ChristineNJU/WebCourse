@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="/zebra-datepicker/public/css/zebra_datepicker.css">
     <link rel="stylesheet" type="text/css" href="/css/common.css">
 
-    {{--<script src="http://code.jquery.com/jquery-latest.js"></script>--}}
-
-
 </head>
 <body>
 <header>
@@ -45,7 +42,7 @@
 <div class="main">
     <div>
         <div id="userCardMoment">
-            <img id="userIcon" src="../img/icon1.jpg"/>
+            <img id="userIcon" src="/img/icon1.jpg"/>
             <h2>Christine张</h2>
             <ul id="momentInfo">
                 <li>
@@ -55,7 +52,7 @@
             </ul>
         </div>
         <nav id="mainNav">
-            <a href="/activity/new">
+            <a href="/activity/new/getNew">
                 新建竞赛
             </a>
         </nav>
@@ -69,6 +66,14 @@
                 <h2>竞赛名称</h2>
                 <div class="mdl-textfield mdl-js-textfield">
                     <input class="mdl-textfield__input" type="text" id="title" />
+                    <label class="mdl-textfield__label" for="title"></label>
+                </div>
+            </div>
+
+            <div class="formItemSelf">
+                <h2>标签</h2>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="tags" />
                     <label class="mdl-textfield__label" for="title"></label>
                 </div>
             </div>
@@ -159,6 +164,11 @@
                 return ;
             }
 
+            var tags =  $('#tags').val();
+            if(tags == null || tags==''){
+                $tip.html('请填写标签_(:зゝ∠)_');
+                return ;
+            }
 
 
             var haslimit = $('input[type="radio"]:checked').val();
@@ -199,6 +209,7 @@
                 return ;
             }
 
+
             $.ajax({
                 type:'post',
                 url:'/activity/create',
@@ -212,6 +223,7 @@
                     peopleAll:limit,
                     begin:begin,
                     end:end,
+                    tags:tags
                 },
                 success:function(data){
                     console.log(data);

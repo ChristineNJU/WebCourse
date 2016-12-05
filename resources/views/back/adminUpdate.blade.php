@@ -54,6 +54,15 @@
                     <label class="mdl-textfield__label" for="userId"></label>
                 </div>
             </div>
+
+            <div class="formItemSelf">
+                <h2>标签</h2>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="tags" value="{{$comp->tags}}"/>
+                    <label class="mdl-textfield__label" for="title"></label>
+                </div>
+            </div>
+
             <input type="hidden" id="compid" value="{{$comp->id}}">
             <div class="formItemSelf">
                 <h2>人数上限</h2>
@@ -147,6 +156,12 @@
                 return ;
             }
 
+            var tags =  $('#tags').val();
+            if(tags == null || tags==''){
+                $tip.html('请填写标签_(:зゝ∠)_');
+                return ;
+            }
+
             var haslimit = $('input[type="radio"]:checked').val();
             var limit = haslimit == 1?$('#peopleCount').val():-1;
             console.log(haslimit == 1);
@@ -198,6 +213,7 @@
                     peopleAll:limit,
                     begin:begin,
                     end:end,
+                    tags:tags,
                     id:$('#compid').val(),
                 },
                 success:function(data){

@@ -51,7 +51,7 @@
             </ul>
         </div>
         <nav id="mainNav">
-            <a href="/activity/new">
+            <a href="/activity/new/getNew"">
                 新建竞赛
             </a>
         </nav>

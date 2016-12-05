@@ -23,7 +23,7 @@ class ActivityController extends Controller
 
         $userId = Auth::user()['id'];
         $count = DB::table('competition_p_ts')->where('userid',$userId)->count();
-        $res = DB::select('SELECT competitions.id,competitions.title,competitions.content,competitions.peopleAll,competitions.peopleHave,
+        $res = DB::select('SELECT competitions.tags,competitions.id,competitions.title,competitions.content,competitions.peopleAll,competitions.peopleHave,
   competitions.begin,competitions.end,competitions.created_at,user_infos.nickname,user_infos.avatar,competitions.authorid
 FROM competitions left JOIN user_infos ON competitions.authorid = user_infos.userid
 WHERE competitions.id = ?;',[$id]);
@@ -65,6 +65,7 @@ WHERE competition_p_ts.comid = ?;',[$id]);
     }
 
     public function newActivity(){
+//        return 'hhh';
         $userId = Auth::user()['id'];
         $count = DB::table('competition_p_ts')->where('userid',$userId)->count();
         return view('front.competition_new')
@@ -84,6 +85,7 @@ WHERE competition_p_ts.comid = ?;',[$id]);
         $begin = $_POST['begin'];
         $end = $_POST['end'];
         $date = date('Y-m-d H:i:s',time());
+        $tags = $_POST['tags'];
 
         $id = DB::table('competitions')->insertGetId(
             array(
@@ -95,7 +97,8 @@ WHERE competition_p_ts.comid = ?;',[$id]);
                 'peopleHave'=>1,
                 'peopleAll'=>$peopleAll,
                 'created_at'=>$date,
-                'updated_at'=>$date)
+                'updated_at'=>$date,
+                'tags'=>$tags)
         );
 
         DB::table('competition_p_ts')->insert(
