@@ -6,7 +6,15 @@ use App\Http\Controllers\Controller;
 use DB;
 use Redirect, Input;
 
+
+
 class AdminController extends Controller{
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index(){
         $res = DB::select('select * from competitions order by created_at DESC');
 
